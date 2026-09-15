@@ -1,133 +1,211 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASFMR Arif Computer & Mobile Servicing Center</title>
+<title>ASFMR ARIF - Computer & Mobile</title>
 
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f4f7fb;
- color:#172033;
+margin:0;
+font-family:Arial,sans-serif;
+background:#0b1018;
+color:white;
 }
-header{
- background:linear-gradient(135deg,#0757d5,#00a6ff);
- color:white;
- text-align:center;
- padding:55px 20px;
+nav{
+padding:16px 20px;
+background:#080c12;
+border-bottom:1px solid #293342;
+display:flex;
+justify-content:space-between;
 }
-header h1{font-size:30px;margin:0 0 15px}
-header p{font-size:17px;line-height:1.7}
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+.logo span{color:#00d9ff}
+nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+.hero{
+text-align:center;
+padding:80px 20px;
+background:radial-gradient(circle,#1b4055,#0b1018 65%);
+}
+.badge{
+display:inline-block;
+padding:8px 15px;
+border:1px solid #00d9ff;
+border-radius:30px;
+color:#00d9ff;
+}
+.hero h1{
+font-size:42px;
+margin:20px 0 8px;
+}
+.hero h1 span{color:#00d9ff}
+.hero h2{
+font-size:22px;
+}
+.hero p{
+color:#c2ccd7;
+font-size:18px;
+line-height:1.8;
+}
 .btn{
- display:inline-block;
- background:white;
- color:#0757d5;
- padding:14px 25px;
- border-radius:30px;
- text-decoration:none;
- font-weight:bold;
- margin-top:15px;
+display:inline-block;
+padding:14px 22px;
+margin:10px 5px;
+background:#00d9ff;
+color:#061018;
+text-decoration:none;
+font-weight:bold;
+border-radius:8px;
+}
+.btn2{
+background:transparent;
+color:#00d9ff;
+border:1px solid #00d9ff;
 }
 section{
- max-width:1000px;
- margin:auto;
- padding:45px 20px;
+max-width:1050px;
+margin:auto;
+padding:55px 20px;
 }
-h2{text-align:center;font-size:28px;margin-bottom:30px}
-.cards{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
- gap:20px;
+h2{
+text-align:center;
+font-size:30px;
+margin-bottom:30px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:20px;
 }
 .card{
- background:white;
- padding:28px 20px;
- text-align:center;
- border-radius:16px;
- box-shadow:0 5px 20px #00000012;
+background:#151d28;
+border:1px solid #293647;
+border-radius:16px;
+padding:28px 20px;
+text-align:center;
 }
 .icon{font-size:45px}
-.card h3{font-size:20px}
-.card p{line-height:1.7;color:#555}
+.card h3{color:#00d9ff}
+.card p{
+color:#b7c1cc;
+line-height:1.7;
+}
 .about{
- background:white;
- padding:28px;
- border-radius:16px;
- box-shadow:0 5px 20px #00000012;
- line-height:1.9;
+background:#151d28;
+border:1px solid #293647;
+border-radius:16px;
+padding:28px;
+line-height:1.9;
+color:#c8d1da;
 }
 .contact{
- background:#0757d5;
- color:white;
- border-radius:16px;
- padding:30px;
- text-align:center;
+text-align:center;
+background:#102b36;
+border:1px solid #00d9ff;
+border-radius:18px;
+padding:30px;
 }
-.contact a{color:white;font-weight:bold}
+.contact a{
+color:#00d9ff;
+}
 footer{
- background:#172033;
- color:white;
- text-align:center;
- padding:25px 15px;
+text-align:center;
+background:#06090e;
+padding:25px;
+color:#8995a5;
+}
+@media(max-width:600px){
+.hero h1{font-size:32px}
+nav a{display:none}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>ASFMR Arif Computer & Mobile Servicing Center</h1>
+<nav>
+<div class="logo">ASFMR <span>ARIF</span></div>
+<div>
+<a href="#services">সেবা</a>
+<a href="#about">পরিচিতি</a>
+<a href="#contact">যোগাযোগ</a>
+</div>
+</nav>
+
+<div class="hero">
+
+<div class="badge">আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</div>
+
+<h1>ASFMR <span>ARIF</span></h1>
+
+<h2>Computer & Mobile Servicing Center</h2>
 
 <p>
-কম্পিউটার • মোবাইল সার্ভিসিং • ফটোকপি • অনলাইন সেবা
+📱 Mobile Servicing &nbsp; | &nbsp;
+💻 Computer Services<br>
+📄 Photocopy &nbsp; | &nbsp;
+🌐 Online Services
 </p>
 
-<p>সোফিগঞ্জ উত্তর বাজার</p>
+<p>📍 সোফিগঞ্জ উত্তর বাজার</p>
 
 <a class="btn" href="tel:01869871037">
 📞 এখনই কল করুন
 </a>
-</header>
 
-<section>
+<a class="btn btn2" href="https://wa.me/8801869871037">
+💬 WhatsApp
+</a>
+
+</div>
+
+<section id="services">
+
 <h2>আমাদের সেবাসমূহ</h2>
 
-<div class="cards">
+<div class="grid">
 
 <div class="card">
 <div class="icon">📱</div>
 <h3>Mobile Servicing</h3>
-<p>মোবাইলের বিভিন্ন সমস্যা নির্ণয় ও সার্ভিসিং করা হয়।</p>
+<p>মোবাইলের বিভিন্ন সমস্যা নির্ণয় ও প্রয়োজনীয় সার্ভিসিং।</p>
 </div>
 
 <div class="card">
 <div class="icon">💻</div>
 <h3>Computer Services</h3>
-<p>কম্পিউটারের বিভিন্ন অফিসিয়াল ও প্রয়োজনীয় কাজ করা হয়।</p>
+<p>কম্পিউটারের বিভিন্ন অফিসিয়াল ও প্রয়োজনীয় কাজ।</p>
 </div>
 
 <div class="card">
 <div class="icon">📄</div>
 <h3>Photocopy</h3>
-<p>মানসম্মত ফটোকপি ও ডকুমেন্টের কাজ করা হয়।</p>
+<p>মানসম্মত ফটোকপি ও ডকুমেন্টের কাজ।</p>
 </div>
 
 <div class="card">
 <div class="icon">🌐</div>
 <h3>Online Services</h3>
-<p>বিভিন্ন ধরনের অনলাইন ও ডিজিটাল সেবা পাওয়া যায়।</p>
+<p>বিভিন্ন অনলাইন ও ডিজিটাল সেবা।</p>
 </div>
 
 </div>
 </section>
 
-<section>
+<section id="about">
+
 <h2>আমাদের সম্পর্কে</h2>
 
 <div class="about">
+
 <p>
 <strong>ASFMR Arif Computer & Mobile Servicing Center</strong>
 আপনার প্রয়োজনীয় কম্পিউটার, মোবাইল সার্ভিসিং,
@@ -135,16 +213,18 @@ footer{
 </p>
 
 <p>
-দ্রুত, যত্নসহকারে এবং সাশ্রয়ী মূল্যে বিভিন্ন ডিজিটাল সেবা
-প্রদানের চেষ্টা করি।
+দ্রুত, যত্নসহকারে এবং সাশ্রয়ী মূল্যে সেবা দেওয়াই আমাদের লক্ষ্য।
 </p>
+
 </div>
 </section>
 
-<section>
-<h2>যোগাযোগ</h2>
+<section id="contact">
 
 <div class="contact">
+
+<h2>যোগাযোগ করুন</h2>
+
 <p>📍 ঠিকানা: সোফিগঞ্জ উত্তর বাজার</p>
 
 <p>
@@ -152,9 +232,19 @@ footer{
 <a href="tel:01869871037">01869871037</a>
 </p>
 
-<a class="btn" href="tel:01869871037">
-Call Now
+<a class="btn" href="tel:01869871037">📞 Call Now</a>
+
+<a class="btn btn2" href="https://wa.me/8801869871037">
+💬 WhatsApp
 </a>
+
+<br>
+
+<a class="btn btn2"
+href="https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+Bangladesh">
+📍 Google Maps
+</a>
+
 </div>
 </section>
 
