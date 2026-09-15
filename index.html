@@ -3,30 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ASFMR Arif Computer & Mobile Servicing Center</title>
+<title>ASFMR ARIF Computer & Mobile Servicing</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:Arial, sans-serif;
-  background:#f5f6fa;
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
   color:#222;
-  padding-bottom:75px;
+  padding-bottom:70px;
 }
-
-button{
-  cursor:pointer;
-  border:0;
-}
-
-.header{
-  height:65px;
+header{
+  height:60px;
   background:#111827;
   color:white;
   display:flex;
@@ -37,2407 +25,910 @@ button{
   top:0;
   z-index:1000;
 }
-
-.brand{
-  font-size:17px;
-  font-weight:bold;
-}
-
-.brand small{
-  display:block;
-  font-size:10px;
-  color:#cbd5e1;
-  margin-top:3px;
-}
-
-.iconBtn{
-  background:transparent;
+.logo{font-size:18px;font-weight:bold}
+.menu-btn,.account-btn{
+  background:none;
+  border:0;
   color:white;
-  font-size:24px;
-  padding:5px;
+  font-size:25px;
+  cursor:pointer;
 }
-
-.headerRight{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-
-.searchBox{
-  padding:12px;
+.menu{
+  position:fixed;
+  left:-300px;
+  top:0;
+  width:280px;
+  height:100%;
   background:white;
+  z-index:2000;
+  padding:20px;
+  box-shadow:2px 0 10px #999;
+  transition:.3s;
+  overflow-y:auto;
 }
-
-.searchBox input{
+.menu.active{left:0}
+.menu h2{margin-bottom:20px}
+.menu button{
   width:100%;
-  padding:12px 15px;
+  padding:13px;
+  margin:4px 0;
+  border:0;
+  background:#f1f5f9;
+  text-align:left;
+  border-radius:8px;
+  cursor:pointer;
+}
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:1500;
+}
+.overlay.active{display:block}
+
+.container{padding:15px;max-width:1100px;margin:auto}
+
+.search{
+  width:100%;
+  padding:14px;
   border:1px solid #ddd;
-  border-radius:25px;
-  outline:none;
-  font-size:14px;
+  border-radius:12px;
+  margin-bottom:15px;
+  font-size:16px;
 }
 
 .ads{
-  display:flex;
-  gap:8px;
-  padding:10px;
-  overflow:hidden;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:15px;
 }
-
 .ad{
-  min-width:31%;
-  height:75px;
+  padding:18px 8px;
   border-radius:12px;
-  padding:12px;
-  background:linear-gradient(135deg,#2563eb,#1e40af);
+  background:#2563eb;
   color:white;
-  font-size:13px;
+  text-align:center;
   font-weight:bold;
 }
 
 .hero{
-  margin:5px 10px 15px;
-  padding:25px 18px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#111827,#374151);
+  background:#111827;
   color:white;
+  padding:30px 20px;
+  border-radius:15px;
+  margin-bottom:20px;
 }
-
-.hero h1{
-  font-size:24px;
-  margin-bottom:8px;
-}
-
-.hero p{
-  font-size:13px;
-  color:#d1d5db;
-  line-height:1.6;
-}
-
-.hero button{
-  margin-top:15px;
-  padding:11px 18px;
-  border-radius:25px;
-  background:white;
-  color:#111827;
-  font-weight:bold;
-}
-
-.section{
-  padding:10px;
-}
-
-.sectionTitle{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-
-.sectionTitle h2{
-  font-size:19px;
-}
+.hero h1{font-size:25px;margin-bottom:10px}
+.hero p{line-height:1.6}
 
 .categories{
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
   gap:10px;
-  overflow-x:auto;
-  padding-bottom:5px;
+  margin:15px 0;
 }
-
-.category{
-  min-width:100px;
-  padding:14px 8px;
+.cat{
   background:white;
-  border-radius:12px;
+  padding:18px 5px;
   text-align:center;
-  box-shadow:0 2px 8px #0000000d;
-  font-size:13px;
-}
-
-.category div{
-  font-size:25px;
-  margin-bottom:5px;
+  border-radius:12px;
+  box-shadow:0 2px 8px #0001;
+  cursor:pointer;
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
-
 .product{
   background:white;
   border-radius:14px;
-  padding:10px;
-  box-shadow:0 2px 10px #0000000d;
+  padding:12px;
+  box-shadow:0 2px 10px #0001;
 }
-
-.productImage{
-  height:125px;
-  background:#f1f5f9;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:55px;
-  margin-bottom:10px;
-}
-
-.product h3{
-  font-size:14px;
-  margin-bottom:6px;
-}
-
-.price{
-  font-weight:bold;
-  margin-bottom:9px;
-  font-size:14px;
-}
-
-.orderBtn{
+.product img{
   width:100%;
-  padding:10px;
-  border-radius:9px;
-  background:#111827;
+  height:180px;
+  object-fit:contain;
+  border-radius:10px;
+}
+.product h3{font-size:16px;margin:8px 0}
+.price{font-weight:bold;margin:8px 0}
+.order{
+  width:100%;
+  padding:11px;
+  background:#16a34a;
   color:white;
-  font-weight:bold;
-  font-size:13px;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-.bottomNav{
+.page{display:none}
+.page.active{display:block}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  margin-top:15px;
+  box-shadow:0 2px 10px #0001;
+}
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+.btn{
+  padding:12px 18px;
+  border:0;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+  margin-top:5px;
+}
+
+.bottom{
   position:fixed;
   bottom:0;
   left:0;
   right:0;
-  height:68px;
+  height:65px;
   background:white;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  box-shadow:0 -2px 10px #0002;
   z-index:1000;
 }
-
-.navItem{
+.bottom button{
+  border:0;
   background:white;
-  color:#555;
-  font-size:11px;
-  text-align:center;
+  cursor:pointer;
+  font-size:12px;
 }
+.bottom span{display:block;font-size:21px;margin-bottom:3px}
 
-.navItem div{
-  font-size:22px;
-  margin-bottom:2px;
-}
-
-.page{
-  display:none;
-  padding:15px;
-}
-
-.page.active{
-  display:block;
-}
-
-.card{
-  background:white;
-  border-radius:15px;
-  padding:16px;
-  margin-bottom:12px;
-  box-shadow:0 2px 10px #0000000d;
-}
-
-.card h2{
-  margin-bottom:12px;
-}
-
-.menu{
-  position:fixed;
-  top:65px;
-  left:8px;
-  width:260px;
-  max-height:calc(100vh - 80px);
-  overflow-y:auto;
-  background:white;
-  border-radius:12px;
-  box-shadow:0 5px 25px #00000030;
-  z-index:2000;
-  display:none;
-}
-
-.menu.show{
-  display:block;
-}
-
-.menu button{
-  width:100%;
-  padding:14px;
-  background:white;
-  text-align:left;
-  border-bottom:1px solid #eee;
-  font-size:14px;
-}
-
-.menu button:hover{
-  background:#f3f4f6;
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:#00000080;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:3000;
-  padding:15px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modalBox{
-  background:white;
-  width:100%;
-  max-width:430px;
-  max-height:90vh;
-  overflow-y:auto;
-  border-radius:18px;
-  padding:20px;
-}
-
-.modalHeader{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.closeBtn{
-  background:#eee;
-  border-radius:50%;
-  width:32px;
-  height:32px;
-}
-
-.input{
-  width:100%;
-  padding:12px;
-  margin-bottom:10px;
-  border:1px solid #ddd;
-  border-radius:9px;
-  outline:none;
-}
-
-.primaryBtn{
-  width:100%;
-  padding:12px;
-  border-radius:9px;
-  background:#111827;
-  color:white;
-  font-weight:bold;
-  margin-top:5px;
-}
-
-.secondaryBtn{
-  width:100%;
-  padding:12px;
-  border-radius:9px;
-  background:#e5e7eb;
-  color:#111;
-  font-weight:bold;
-  margin-top:8px;
-}
-
-.profilePhoto{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  object-fit:cover;
-  background:#e5e7eb;
-  display:block;
-  margin:0 auto 15px;
-}
-
-.chatMessages{
-  height:350px;
-  overflow-y:auto;
-  padding:10px;
-  background:#f3f4f6;
-  border-radius:12px;
-  margin-bottom:10px;
-}
-
-.message{
-  max-width:80%;
-  padding:9px 12px;
-  border-radius:12px;
-  margin-bottom:8px;
-  font-size:13px;
-}
-
-.message.me{
-  background:#111827;
-  color:white;
-  margin-left:auto;
-}
-
-.message.admin{
-  background:white;
-  color:#222;
-}
-
-.empty{
-  text-align:center;
-  padding:30px;
-  color:#777;
-}
-
-@media(max-width:360px){
-  .products{
-    grid-template-columns:1fr;
-  }
+@media(max-width:700px){
+  .ads{grid-template-columns:1fr 1fr 1fr}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .product img{height:140px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-
-  <button class="iconBtn" onclick="toggleMenu()">☰</button>
-
-  <div class="brand">
-    ASFMR ARIF
-    <small>Computer & Mobile Servicing Center</small>
-  </div>
-
-  <div class="headerRight">
-    <button class="iconBtn" onclick="openPage('profilePage')">👤</button>
-  </div>
-
+<header>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<div class="logo">ASFMR ARIF</div>
+<button class="account-btn" onclick="openPage('profilePage')">👤</button>
 </header>
 
-<!-- MENU -->
-<div id="sideMenu" class="menu">
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-  <button onclick="openPage('servicesPage');toggleMenu()">🛠️ All Services</button>
+<div class="menu" id="sideMenu">
+<h2>ASFMR ARIF</h2>
 
-  <button onclick="openPage('shopPage');toggleMenu()">🛒 Shop / Products</button>
-
-  <button onclick="messenger()">💬 Messenger</button>
-
-  <button onclick="callUs();toggleMenu()">📞 Call Us</button>
-
-  <button onclick="whatsapp();toggleMenu()">🟢 WhatsApp</button>
-
-  <button onclick="locationPage();toggleMenu()">📍 Our Location</button>
-
-  <button onclick="openPage('aboutPage');toggleMenu()">ℹ️ About Us</button>
-
-  <button onclick="openPage('hoursPage');toggleMenu()">🕒 Opening Hours</button>
-
-  <button onclick="showNotifications();toggleMenu()">🔔 Notifications</button>
-
-  <button onclick="languagePage();toggleMenu()">🌐 Language</button>
-
-  <button onclick="settingsPage();toggleMenu()">⚙️ Settings</button>
-
-  <button onclick="openPage('privacyPage');toggleMenu()">🔐 Privacy Policy</button>
-
-  <button onclick="openPage('termsPage');toggleMenu()">📄 Terms & Conditions</button>
-
+<button onclick="openPage('servicePage');toggleMenu()">🛠️ All Services</button>
+<button onclick="openPage('shopPage');toggleMenu()">🛒 Shop / Products</button>
+<button onclick="openPage('chatPage');toggleMenu()">💬 Messenger</button>
+<button onclick="callUs()">📞 Call Us</button>
+<button onclick="openWhatsApp()">🟢 WhatsApp</button>
+<button onclick="openLocation()">📍 Our Location</button>
+<button onclick="openPage('aboutPage');toggleMenu()">ℹ️ About Us</button>
+<button onclick="openPage('hoursPage');toggleMenu()">🕒 Opening Hours</button>
+<button onclick="showNotification()">🔔 Notifications</button>
+<button onclick="openLanguage()">🌐 Language</button>
+<button onclick="openPage('settingsPage');toggleMenu()">⚙️ Settings</button>
+<button onclick="openPage('privacyPage');toggleMenu()">🔒 Privacy Policy</button>
+<button onclick="openPage('termsPage');toggleMenu()">📄 Terms & Conditions</button>
 </div>
 
-<!-- SEARCH -->
-<div class="searchBox">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="🔍 Search product..."
-    oninput="searchProducts()"
-  >
-</div>
 
-<!-- ADS -->
-<div class="ads">
-
-  <div class="ad">
-    💻 Computer
-    <br>
-    Official Work
-  </div>
-
-  <div class="ad">
-    📱 Mobile
-    <br>
-    Servicing
-  </div>
-
-  <div class="ad">
-    🖨️ Online
-    <br>
-    Services
-  </div>
-
-</div>
+<main class="container">
 
 <!-- HOME -->
-<main id="homePage" class="page active">
+<section id="homePage" class="page active">
 
-  <section class="hero">
+<div class="ads">
+<div class="ad">💻 COMPUTER</div>
+<div class="ad">📱 MOBILE</div>
+<div class="ad">🖨️ ONLINE SERVICE</div>
+</div>
 
-    <h1>ASFMR ARIF</h1>
+<input class="search" id="searchBox"
+placeholder="🔍 পণ্য খুঁজুন..."
+oninput="searchProducts()">
 
-    <p>
-      Computer, Mobile Servicing, Photo Copy,
-      Online Application এবং বিভিন্ন Official কাজ
-      একসাথে করা হয়।
-    </p>
+<div class="hero">
+<h1>ASFMR ARIF</h1>
+<p>Computer & Mobile Servicing Center</p>
+<p>কম্পিউটার, মোবাইল সার্ভিসিং, ফটোকপি ও অনলাইন সকল কাজ।</p>
+</div>
 
-    <button onclick="openPage('servicesPage')">
-      আমাদের সার্ভিস দেখুন
-    </button>
+<h2>Categories</h2>
 
-  </section>
+<div class="categories">
+<div class="cat" onclick="showProducts('all')">📦<br>All</div>
+<div class="cat" onclick="showProducts('mobile')">📱<br>Mobile</div>
+<div class="cat" onclick="showProducts('computer')">💻<br>Computer</div>
+<div class="cat" onclick="showProducts('accessories')">🎧<br>Accessories</div>
+</div>
 
-  <section class="section">
-
-    <div class="sectionTitle">
-      <h2>Categories</h2>
-    </div>
-
-    <div class="categories">
-
-      <div class="category">
-        <div>📱</div>
-        Mobile
-      </div>
-
-      <div class="category">
-        <div>💻</div>
-        Computer
-      </div>
-
-      <div class="category">
-        <div>🖨️</div>
-        Photo Copy
-      </div>
-
-      <div class="category">
-        <div>🌐</div>
-        Online
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <div class="sectionTitle">
-      <h2>Popular Products</h2>
-    </div>
-
-    <div id="productList" class="products"></div>
-
-  </section>
-
-</main>
-
-<!-- SHOP PAGE -->
-<section id="shopPage" class="page">
-
-  <div class="card">
-
-    <h2>🛒 Shop / Products</h2>
-
-    <p>
-      আমাদের available products থেকে পছন্দের
-      পণ্য নির্বাচন করে সরাসরি Order Now চাপুন।
-    </p>
-
-  </div>
-
-  <div id="shopProductList" class="products"></div>
+<h2>Products</h2>
+<div id="productList" class="products"></div>
 
 </section>
+
+
+<!-- SHOP -->
+<section id="shopPage" class="page">
+<div class="card">
+<h2>🛒 Shop</h2>
+<br>
+<input class="search" id="shopSearch" placeholder="পণ্য খুঁজুন..." oninput="searchShop()">
+<div id="shopProducts" class="products"></div>
+</div>
+</section>
+
 
 <!-- SERVICES -->
-<section id="servicesPage" class="page">
-
-  <div class="card">
-
-    <h2>🛠️ আমাদের সার্ভিস</h2>
-
-    <p>📱 Mobile Servicing</p>
-    <br>
-
-    <p>💻 Computer Servicing</p>
-    <br>
-
-    <p>🖨️ Photo Copy</p>
-    <br>
-
-    <p>📄 Print / Scan</p>
-    <br>
-
-    <p>🌐 Online Application</p>
-    <br>
-
-    <p>🖥️ Computer Official Work</p>
-    <br>
-
-    <p>📷 ছবি তোলা ও প্রিন্ট</p>
-    <br>
-
-    <p>📑 বিভিন্ন Online / Digital Service</p>
-
-  </div>
-
+<section id="servicePage" class="page">
+<div class="card">
+<h2>🛠️ আমাদের সার্ভিস</h2>
+<br>
+<p>📱 Mobile Servicing</p><br>
+<p>💻 Computer Servicing</p><br>
+<p>🖨️ Photocopy</p><br>
+<p>📄 Online Application</p><br>
+<p>🖨️ Printing</p><br>
+<p>📸 Photo & Document Work</p><br>
+<p>🌐 Online সকল কাজ</p>
+</div>
 </section>
+
+
+<!-- CHAT -->
+<section id="chatPage" class="page">
+<div class="card">
+<h2>💬 Messenger</h2>
+<div id="chatMessages" style="height:350px;overflow:auto;padding:10px;background:#f5f5f5;margin:15px 0"></div>
+<input id="chatInput" placeholder="আপনার মেসেজ লিখুন...">
+<button class="btn" onclick="sendMessage()">Send</button>
+</div>
+</section>
+
 
 <!-- PROFILE -->
 <section id="profilePage" class="page">
-
-  <div class="card">
-
-    <h2>👤 My Profile</h2>
-
-    <div id="profileLoggedOut">
-
-      <div class="empty">
-        আপনি এখনো Login করেননি।
-      </div>
-
-      <button class="primaryBtn" onclick="openLogin()">
-        Login / Sign Up
-      </button>
-
-    </div>
-
-    <div id="profileLoggedIn" style="display:none;">
-
-      <img
-        id="profilePhoto"
-        class="profilePhoto"
-        src=""
-        alt="Profile"
-      >
-
-      <input
-        id="photoInput"
-        class="input"
-        type="file"
-        accept="image/*"
-        onchange="previewProfilePhoto(event)"
-      >
-
-      <input
-        id="profileName"
-        class="input"
-        placeholder="আপনার নাম"
-      >
-
-      <input
-        id="profilePhone"
-        class="input"
-        placeholder="মোবাইল নম্বর"
-      >
-
-      <textarea
-        id="profileAddress"
-        class="input"
-        placeholder="ঠিকানা"
-        rows="3"
-      ></textarea>
-
-      <button class="primaryBtn" onclick="saveProfile()">
-        💾 Save Profile
-      </button>
-
-      <button class="secondaryBtn" onclick="openPage('ordersPage')">
-        📦 My Orders
-      </button>
-
-      <button class="secondaryBtn" onclick="messenger()">
-        💬 Chat With Us
-      </button>
-
-      <button class="secondaryBtn" onclick="logoutUser()">
-        🚪 Logout
-      </button>
-
-    </div>
-
-  </div>
-
+<div class="card">
+<h2>👤 Customer Profile</h2>
+<br>
+<input id="profileName" placeholder="আপনার নাম">
+<input id="profilePhone" placeholder="মোবাইল নম্বর">
+<input id="profileAddress" placeholder="ঠিকানা">
+<button class="btn" onclick="saveProfile()">Save Profile</button>
+<br><br>
+<button class="btn" onclick="login()">Login</button>
+<button class="btn" onclick="signup()">Sign Up</button>
+<button class="btn" onclick="logoutUser()">Logout</button>
+</div>
 </section>
 
-<!-- ORDERS -->
-<section id="ordersPage" class="page">
 
-  <div class="card">
-
-    <h2>📦 My Orders</h2>
-
-    <div id="myOrders">
-      <div class="empty">
-        Login করলে আপনার Order এখানে দেখা যাবে।
-      </div>
-    </div>
-
-  </div>
-
+<!-- ORDER -->
+<section id="orderPage" class="page">
+<div class="card">
+<h2>📦 Order Now</h2>
+<input id="orderProduct" readonly>
+<input id="orderName" placeholder="আপনার নাম">
+<input id="orderPhone" placeholder="মোবাইল নম্বর">
+<input id="orderAddress" placeholder="ঠিকানা">
+<textarea id="orderNote" placeholder="অতিরিক্ত তথ্য"></textarea>
+<button class="btn" onclick="submitOrder()">Confirm Order</button>
+</div>
 </section>
+
 
 <!-- ABOUT -->
 <section id="aboutPage" class="page">
-
-  <div class="card">
-
-    <h2>ℹ️ About Us</h2>
-
-    <p style="line-height:1.8;">
-      <b>ASFMR Arif Computer & Mobile Servicing Center</b>
-      একটি Computer ও Mobile Service Center।
-      এখানে Mobile Servicing, Computer Servicing,
-      Photo Copy, Print, Scan এবং বিভিন্ন Online
-      ও Official কাজ করা হয়।
-    </p>
-
-    <br>
-
-    <p>
-      📍 Sofigonj Uttor Bazar, 19 No. Purbo Chormotua,
-      Sadar, Noakhali
-    </p>
-
-    <br>
-
-    <p>📞 01869871037</p>
-
-  </div>
-
+<div class="card">
+<h2>ℹ️ About Us</h2>
+<br>
+<p><b>ASFMR ARIF Computer & Mobile Servicing Center</b></p>
+<br>
+<p>আমাদের এখানে মোবাইল সার্ভিসিং, কম্পিউটার সার্ভিসিং, ফটোকপি, প্রিন্টিং এবং অনলাইন সকল কাজ করা হয়।</p>
+<br>
+<p>📍 Sofigonj Uttor Bazar, Noakhali</p>
+<p>📞 01869871037</p>
+</div>
 </section>
+
 
 <!-- HOURS -->
 <section id="hoursPage" class="page">
-
-  <div class="card">
-
-    <h2>🕒 Opening Hours</h2>
-
-    <p>প্রতিদিন: সকাল ৮টা — রাত ৯টা</p>
-
-    <br>
-
-    <p>
-      বিশেষ ছুটির দিনে সময় পরিবর্তিত হতে পারে।
-    </p>
-
-  </div>
-
+<div class="card">
+<h2>🕒 Opening Hours</h2>
+<br>
+<p>শনিবার - বৃহস্পতিবার</p>
+<p>সকাল ৯টা - রাত ৯টা</p>
+<br>
+<p>শুক্রবার: প্রয়োজন অনুযায়ী</p>
+</div>
 </section>
+
+
+<!-- SETTINGS -->
+<section id="settingsPage" class="page">
+<div class="card">
+<h2>⚙️ Settings</h2>
+<br>
+<button class="btn" onclick="alert('Language settings')">🌐 Language</button>
+<button class="btn" onclick="alert('Notification settings')">🔔 Notifications</button>
+</div>
+</section>
+
 
 <!-- PRIVACY -->
 <section id="privacyPage" class="page">
-
-  <div class="card">
-
-    <h2>🔐 Privacy Policy</h2>
-
-    <p style="line-height:1.8;">
-      আপনার Account information আপনার নিজের
-      Firebase account-এর সাথে সংরক্ষিত হবে।
-      অন্য Customer আপনার Profile বা ব্যক্তিগত
-      তথ্য দেখতে পারবে না।
-    </p>
-
-  </div>
-
+<div class="card">
+<h2>🔒 Privacy Policy</h2>
+<br>
+<p>Customer information নিরাপদ রাখার জন্য আমরা প্রয়োজনীয় ব্যবস্থা গ্রহণ করি।</p>
+</div>
 </section>
+
 
 <!-- TERMS -->
 <section id="termsPage" class="page">
-
-  <div class="card">
-
-    <h2>📄 Terms & Conditions</h2>
-
-    <p style="line-height:1.8;">
-      Website-এর মাধ্যমে Order করার সময় সঠিক
-      নাম, মোবাইল নম্বর ও ঠিকানা প্রদান করতে হবে।
-      Product availability এবং price পরিবর্তন হতে পারে।
-    </p>
-
-  </div>
-
+<div class="card">
+<h2>📄 Terms & Conditions</h2>
+<br>
+<p>Website ব্যবহার করার মাধ্যমে আপনি আমাদের নিয়ম ও শর্ত মেনে নিচ্ছেন।</p>
+</div>
 </section>
 
-<!-- BOTTOM NAV -->
-<nav class="bottomNav">
+</main>
 
-  <button class="navItem" onclick="openPage('homePage')">
-    <div>🏠</div>
-    Home
-  </button>
 
-  <button class="navItem" onclick="messenger()">
-    <div>💬</div>
-    Messenger
-  </button>
+<div class="bottom">
+<button onclick="openPage('homePage')">
+<span>🏠</span>Home
+</button>
 
-  <button class="navItem" onclick="openPage('shopPage')">
-    <div>🛒</div>
-    Shop
-  </button>
+<button onclick="openPage('chatPage')">
+<span>💬</span>Messenger
+</button>
 
-  <button class="navItem" onclick="openPage('profilePage')">
-    <div>👤</div>
-    Profile
-  </button>
+<button onclick="openPage('shopPage')">
+<span>🛒</span>Shop
+</button>
 
-</nav>
-
-<!-- ============================= -->
-<!-- STEP 2 : FIREBASE + ACCOUNT -->
-<!-- ============================= -->
-
-<!-- LOGIN MODAL -->
-<div id="loginModal" class="modal">
-
-  <div class="modalBox">
-
-    <div class="modalHeader">
-      <h2 id="loginTitle">Login</h2>
-      <button class="closeBtn" onclick="closeLogin()">✕</button>
-    </div>
-
-    <input
-      id="loginEmail"
-      class="input"
-      type="email"
-      placeholder="Email"
-    >
-
-    <input
-      id="loginPassword"
-      class="input"
-      type="password"
-      placeholder="Password"
-    >
-
-    <button class="primaryBtn" onclick="loginUser()">
-      🔐 Login
-    </button>
-
-    <button class="secondaryBtn" onclick="signupUser()">
-      📝 Create New Account
-    </button>
-
-    <p
-      id="loginMessage"
-      style="margin-top:12px;text-align:center;font-size:13px;"
-    ></p>
-
-  </div>
-
+<button onclick="openPage('profilePage')">
+<span>👤</span>Profile
+</button>
 </div>
 
 
-<!-- ORDER MODAL -->
-<div id="orderModal" class="modal">
-
-  <div class="modalBox">
-
-    <div class="modalHeader">
-      <h2>🛒 Order Now</h2>
-
-      <button class="closeBtn" onclick="closeOrder()">
-        ✕
-      </button>
-    </div>
-
-    <p id="orderProductName"
-       style="font-weight:bold;margin-bottom:12px;">
-    </p>
-
-    <input
-      id="orderName"
-      class="input"
-      placeholder="আপনার নাম"
-    >
-
-    <input
-      id="orderPhone"
-      class="input"
-      type="tel"
-      placeholder="মোবাইল নম্বর"
-    >
-
-    <textarea
-      id="orderAddress"
-      class="input"
-      rows="3"
-      placeholder="আপনার ঠিকানা"
-    ></textarea>
-
-    <textarea
-      id="orderNote"
-      class="input"
-      rows="2"
-      placeholder="অতিরিক্ত কিছু লিখতে চাইলে লিখুন"
-    ></textarea>
-
-    <button class="primaryBtn" onclick="submitOrder()">
-      ✅ Confirm Order
-    </button>
-
-    <p id="orderMessage"
-       style="margin-top:10px;text-align:center;">
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- CHAT MODAL -->
-<div id="chatModal" class="modal">
-
-  <div class="modalBox">
-
-    <div class="modalHeader">
-
-      <h2>💬 Chat With Us</h2>
-
-      <button class="closeBtn" onclick="closeChat()">
-        ✕
-      </button>
-
-    </div>
-
-    <div id="chatMessages" class="chatMessages">
-
-      <div class="empty">
-        Message loading...
-      </div>
-
-    </div>
-
-    <input
-      id="chatInput"
-      class="input"
-      placeholder="আপনার মেসেজ লিখুন..."
-      onkeydown="if(event.key==='Enter') sendChatMessage()"
-    >
-
-    <button class="primaryBtn" onclick="sendChatMessage()">
-      📤 Send Message
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- FIREBASE -->
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {initializeApp} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  addDoc,
-  collection,
-  onSnapshot,
-  serverTimestamp,
-  query
+getFirestore,
+doc,
+setDoc,
+getDoc,
+addDoc,
+collection,
+serverTimestamp,
+query,
+orderBy,
+onSnapshot
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig={
+apiKey:"AIzaSyDA4mQXIhU_W3T6je3o_K61VGRp1x_LQs",
+authDomain:"asfmr-arif.firebaseapp.com",
+projectId:"asfmr-arif",
+storageBucket:"asfmr-arif.firebasestorage.app",
+messagingSenderId:"571370137781",
+appId:"1:571370137781:web:1cfa73d077be06347876fc",
+measurementId:"G-RWJFBHYWM9"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+window.firebaseAuth=auth;
+window.firebaseDB=db;
+
+onAuthStateChanged(auth,async(user)=>{
+
+window.currentUser=user;
+
+if(user){
+
+const ref=doc(db,"users",user.uid);
+const snap=await getDoc(ref);
+
+if(snap.exists()){
+
+const data=snap.data();
+
+document.getElementById("profileName").value=data.name||"";
+document.getElementById("profilePhone").value=data.phone||"";
+document.getElementById("profileAddress").value=data.address||"";
+
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+loadChat();
 
-/* ============================= */
-/* FIREBASE CONFIG */
-/* ============================= */
-
-const firebaseConfig = {
-
-  apiKey: "AIzaSyDA4mQXIhU_Wc3T6je3o_K61VGRp1x_LQs",
-
-  authDomain: "asfmr-arif.firebaseapp.com",
-
-  projectId: "asfmr-arif",
-
-  storageBucket: "asfmr-arif.firebasestorage.app",
-
-  messagingSenderId: "571370137781",
-
-  appId: "1:571370137781:web:1cfa73d077be06347876fc",
-
-  measurementId: "G-RWJFBHYWM9"
-
-};
-
-
-/* ============================= */
-/* START FIREBASE */
-/* ============================= */
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-
-/* ============================= */
-/* GLOBAL VARIABLES */
-/* ============================= */
-
-window.firebaseAuth = auth;
-
-window.firebaseDB = db;
-
-window.currentUser = null;
-
-let unsubscribeChat = null;
-
-
-/* ============================= */
-/* LOGIN MODAL */
-/* ============================= */
-
-window.openLogin = function(){
-
-  document
-    .getElementById("loginModal")
-    .classList.add("show");
-
-};
-
-
-window.closeLogin = function(){
-
-  document
-    .getElementById("loginModal")
-    .classList.remove("show");
-
-};
-
-
-/* ============================= */
-/* SIGN UP */
-/* ============================= */
-
-window.signupUser = async function(){
-
-  const email =
-    document.getElementById("loginEmail").value.trim();
-
-  const password =
-    document.getElementById("loginPassword").value.trim();
-
-  const message =
-    document.getElementById("loginMessage");
-
-
-  if(!email || !password){
-
-    message.innerText =
-      "Email এবং Password দিন।";
-
-    return;
-
-  }
-
-
-  if(password.length < 6){
-
-    message.innerText =
-      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।";
-
-    return;
-
-  }
-
-
-  try{
-
-    const result =
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-
-    await setDoc(
-      doc(db,"users",result.user.uid),
-      {
-        email:email,
-        name:"",
-        phone:"",
-        address:"",
-        photo:"",
-        createdAt:serverTimestamp()
-      },
-      {merge:true}
-    );
-
-
-    message.innerText =
-      "✅ Account তৈরি হয়েছে।";
-
-    setTimeout(closeLogin,1000);
-
-
-  }catch(error){
-
-    message.innerText =
-      "❌ " + error.message;
-
-  }
-
-};
-
-
-/* ============================= */
-/* LOGIN */
-/* ============================= */
-
-window.loginUser = async function(){
-
-  const email =
-    document.getElementById("loginEmail").value.trim();
-
-  const password =
-    document.getElementById("loginPassword").value.trim();
-
-  const message =
-    document.getElementById("loginMessage");
-
-
-  if(!email || !password){
-
-    message.innerText =
-      "Email এবং Password দিন।";
-
-    return;
-
-  }
-
-
-  try{
-
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-
-    message.innerText =
-      "✅ Login successful!";
-
-    setTimeout(closeLogin,700);
-
-
-  }catch(error){
-
-    message.innerText =
-      "❌ Email অথবা Password ভুল।";
-
-  }
-
-};
-
-
-/* ============================= */
-/* LOGOUT */
-/* ============================= */
-
-window.logoutUser = async function(){
-
-  try{
-
-    await signOut(auth);
-
-    alert("আপনি Logout করেছেন।");
-
-    openPage("homePage");
-
-  }catch(error){
-
-    alert("Logout করা যায়নি।");
-
-  }
-
-};
-
-
-/* ============================= */
-/* AUTH STATE */
-/* ============================= */
-
-onAuthStateChanged(auth, async(user)=>{
-
-  window.currentUser = user;
-
-
-  const loggedOut =
-    document.getElementById("profileLoggedOut");
-
-  const loggedIn =
-    document.getElementById("profileLoggedIn");
-
-
-  if(user){
-
-    loggedOut.style.display = "none";
-
-    loggedIn.style.display = "block";
-
-
-    await loadProfile();
-
-    loadMyOrders();
-
-
-  }else{
-
-    loggedOut.style.display = "block";
-
-    loggedIn.style.display = "none";
-
-  }
+}
 
 });
 
 
-/* ============================= */
-/* LOAD PROFILE */
-/* ============================= */
+window.signup=async function(){
 
-window.loadProfile = async function(){
+const email=prompt("Email দিন:");
+const password=prompt("Password দিন:");
 
-  const user = window.currentUser;
+if(!email||!password)return;
 
-  if(!user) return;
+try{
 
+const result=await createUserWithEmailAndPassword(
+auth,email,password
+);
 
-  try{
+await setDoc(
+doc(db,"users",result.user.uid),
+{
+email:email,
+name:"",
+phone:"",
+address:"",
+createdAt:serverTimestamp()
+}
+);
 
-    const snap =
-      await getDoc(
-        doc(db,"users",user.uid)
-      );
+alert("Account তৈরি হয়েছে");
 
+}catch(e){
 
-    if(snap.exists()){
-
-      const data = snap.data();
-
-
-      document.getElementById(
-        "profileName"
-      ).value = data.name || "";
-
-
-      document.getElementById(
-        "profilePhone"
-      ).value = data.phone || "";
-
-
-      document.getElementById(
-        "profileAddress"
-      ).value = data.address || "";
-
-
-      const photo =
-        document.getElementById("profilePhoto");
-
-
-      if(data.photo){
-
-        photo.src = data.photo;
-
-      }else{
-
-        photo.src =
-          "https://via.placeholder.com/90";
-
-      }
-
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-  }
-
-};
-
-
-/* ============================= */
-/* PROFILE PHOTO PREVIEW */
-/* ============================= */
-
-window.previewProfilePhoto = function(event){
-
-  const file =
-    event.target.files[0];
-
-  if(!file) return;
-
-
-  const reader =
-    new FileReader();
-
-
-  reader.onload = function(){
-
-    document.getElementById(
-      "profilePhoto"
-    ).src = reader.result;
-
-  };
-
-
-  reader.readAsDataURL(file);
-
-};
-
-
-/* ============================= */
-/* SAVE PROFILE */
-/* ============================= */
-
-window.saveProfile = async function(){
-
-  const user = window.currentUser;
-
-  if(!user){
-
-    openLogin();
-
-    return;
-
-  }
-
-
-  const name =
-    document.getElementById(
-      "profileName"
-    ).value.trim();
-
-
-  const phone =
-    document.getElementById(
-      "profilePhone"
-    ).value.trim();
-
-
-  const address =
-    document.getElementById(
-      "profileAddress"
-    ).value.trim();
-
-
-  const photo =
-    document.getElementById(
-      "profilePhoto"
-    ).src;
-
-
-  try{
-
-    await setDoc(
-
-      doc(
-        db,
-        "users",
-        user.uid
-      ),
-
-      {
-        email:user.email,
-
-        name:name,
-
-        phone:phone,
-
-        address:address,
-
-        photo:photo,
-
-        updatedAt:serverTimestamp()
-
-      },
-
-      {merge:true}
-
-    );
-
-
-    alert("✅ Profile Save হয়েছে।");
-
-
-  }catch(error){
-
-    alert(
-      "Profile Save হয়নি: "
-      + error.message
-    );
-
-  }
-
-};
-
-
-/* ============================= */
-/* ORDER */
-/* ============================= */
-
-let selectedProduct = "";
-
-
-window.orderProduct = function(product){
-
-  if(!window.currentUser){
-
-    openLogin();
-
-    return;
-
-  }
-
-
-  selectedProduct = product;
-
-
-  document.getElementById(
-    "orderProductName"
-  ).innerText =
-    "Product: " + product;
-
-
-  document.getElementById(
-    "orderModal"
-  ).classList.add("show");
-
-
-  loadOrderProfile();
-
-};
-
-
-window.closeOrder = function(){
-
-  document
-    .getElementById("orderModal")
-    .classList.remove("show");
-
-};
-
-
-async function loadOrderProfile(){
-
-  const user =
-    window.currentUser;
-
-  if(!user) return;
-
-
-  try{
-
-    const snap =
-      await getDoc(
-        doc(
-          db,
-          "users",
-          user.uid
-        )
-      );
-
-
-    if(snap.exists()){
-
-      const data =
-        snap.data();
-
-
-      document.getElementById(
-        "orderName"
-      ).value =
-        data.name || "";
-
-
-      document.getElementById(
-        "orderPhone"
-      ).value =
-        data.phone || "";
-
-
-      document.getElementById(
-        "orderAddress"
-      ).value =
-        data.address || "";
-
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-  }
+alert(e.message);
 
 }
 
-
-/* ============================= */
-/* SUBMIT ORDER */
-/* ============================= */
-
-window.submitOrder = async function(){
-
-  const user =
-    window.currentUser;
-
-
-  if(!user){
-
-    closeOrder();
-
-    openLogin();
-
-    return;
-
-  }
-
-
-  const name =
-    document.getElementById(
-      "orderName"
-    ).value.trim();
-
-
-  const phone =
-    document.getElementById(
-      "orderPhone"
-    ).value.trim();
-
-
-  const address =
-    document.getElementById(
-      "orderAddress"
-    ).value.trim();
-
-
-  const note =
-    document.getElementById(
-      "orderNote"
-    ).value.trim();
-
-
-  if(!name || !phone || !address){
-
-    document.getElementById(
-      "orderMessage"
-    ).innerText =
-      "⚠️ নাম, মোবাইল ও ঠিকানা পূরণ করুন।";
-
-    return;
-
-  }
-
-
-  try{
-
-    await addDoc(
-
-      collection(db,"orders"),
-
-      {
-
-        userId:user.uid,
-
-        userEmail:user.email,
-
-        product:selectedProduct,
-
-        name:name,
-
-        phone:phone,
-
-        address:address,
-
-        note:note,
-
-        status:"pending",
-
-        createdAt:serverTimestamp()
-
-      }
-
-    );
-
-
-    document.getElementById(
-      "orderMessage"
-    ).innerText =
-      "✅ আপনার Order সফলভাবে নেওয়া হয়েছে।";
-
-
-    setTimeout(()=>{
-
-      closeOrder();
-
-      document.getElementById(
-        "orderMessage"
-      ).innerText = "";
-
-      document.getElementById(
-        "orderNote"
-      ).value = "";
-
-    },1200);
-
-
-  }catch(error){
-
-    document.getElementById(
-      "orderMessage"
-    ).innerText =
-      "❌ Order করা যায়নি।";
-
-    console.log(error);
-
-  }
-
 };
 
 
-/* ============================= */
-/* MY ORDERS */
-/* ============================= */
+window.login=async function(){
 
-window.loadMyOrders = function(){
+const email=prompt("Email দিন:");
+const password=prompt("Password দিন:");
 
-  const user =
-    window.currentUser;
+if(!email||!password)return;
 
-  if(!user) return;
+try{
 
+await signInWithEmailAndPassword(
+auth,email,password
+);
 
-  const container =
-    document.getElementById(
-      "myOrders"
-    );
+alert("Login সফল হয়েছে");
 
+}catch(e){
 
-  const ordersRef =
-    collection(
-      db,
-      "orders"
-    );
-
-
-  onSnapshot(
-
-    ordersRef,
-
-    (snapshot)=>{
-
-      const orders = [];
-
-
-      snapshot.forEach((item)=>{
-
-        const data =
-          item.data();
-
-
-        if(data.userId === user.uid){
-
-          orders.push(data);
-
-        }
-
-      });
-
-
-      if(orders.length === 0){
-
-        container.innerHTML =
-          '<div class="empty">এখনো কোনো Order নেই।</div>';
-
-        return;
-
-      }
-
-
-      container.innerHTML =
-        orders.map(order=>`
-
-          <div class="card">
-
-            <b>🛒 ${escapeHTML(order.product || "")}</b>
-
-            <p style="margin-top:8px;">
-              Status:
-              <b>${escapeHTML(order.status || "pending")}</b>
-            </p>
-
-            <p style="margin-top:5px;">
-              📞 ${escapeHTML(order.phone || "")}
-            </p>
-
-            <p style="margin-top:5px;">
-              📍 ${escapeHTML(order.address || "")}
-            </p>
-
-          </div>
-
-        `).join("");
-
-    }
-
-  );
-
-};
-
-
-/* ============================= */
-/* CHAT */
-/* ============================= */
-
-window.messenger = async function(){
-
-  const user =
-    window.currentUser;
-
-
-  if(!user){
-
-    openLogin();
-
-    return;
-
-  }
-
-
-  document.getElementById(
-    "chatModal"
-  ).classList.add("show");
-
-
-  await setDoc(
-
-    doc(
-      db,
-      "chats",
-      user.uid
-    ),
-
-    {
-
-      userId:user.uid,
-
-      userName:user.email,
-
-      userEmail:user.email,
-
-      updatedAt:serverTimestamp(),
-
-      lastMessage:""
-
-    },
-
-    {merge:true}
-
-  );
-
-
-  startChat();
-
-};
-
-
-/* ============================= */
-/* START REAL-TIME CHAT */
-/* ============================= */
-
-function startChat(){
-
-  const user =
-    window.currentUser;
-
-  if(!user) return;
-
-
-  const messagesRef =
-    collection(
-      db,
-      "chats",
-      user.uid,
-      "messages"
-    );
-
-
-  if(unsubscribeChat){
-
-    unsubscribeChat();
-
-  }
-
-
-  unsubscribeChat =
-    onSnapshot(
-
-      messagesRef,
-
-      (snapshot)=>{
-
-        const messages = [];
-
-
-        snapshot.forEach(item=>{
-
-          messages.push({
-            id:item.id,
-            ...item.data()
-          });
-
-        });
-
-
-        messages.sort((a,b)=>{
-
-          const aTime =
-            a.createdAt?.seconds || 0;
-
-          const bTime =
-            b.createdAt?.seconds || 0;
-
-          return aTime-bTime;
-
-        });
-
-
-        const box =
-          document.getElementById(
-            "chatMessages"
-          );
-
-
-        if(messages.length === 0){
-
-          box.innerHTML =
-            '<div class="empty">আপনার মেসেজ এখানে দেখা যাবে।</div>';
-
-          return;
-
-        }
-
-
-        box.innerHTML =
-          messages.map(msg=>`
-
-            <div class="message ${
-              msg.senderId === user.uid
-              ? "me"
-              : "admin"
-            }">
-
-              ${escapeHTML(msg.text || "")}
-
-            </div>
-
-          `).join("");
-
-
-        box.scrollTop =
-          box.scrollHeight;
-
-      }
-
-    );
+alert(e.message);
 
 }
 
-
-/* ============================= */
-/* SEND CHAT MESSAGE */
-/* ============================= */
-
-window.sendChatMessage = async function(){
-
-  const user =
-    window.currentUser;
+};
 
 
-  if(!user){
+window.logoutUser=async function(){
 
-    openLogin();
-
-    return;
-
-  }
-
-
-  const input =
-    document.getElementById(
-      "chatInput"
-    );
-
-
-  const text =
-    input.value.trim();
-
-
-  if(!text) return;
-
-
-  try{
-
-    await addDoc(
-
-      collection(
-        db,
-        "chats",
-        user.uid,
-        "messages"
-      ),
-
-      {
-
-        senderId:user.uid,
-
-        senderName:user.email,
-
-        text:text,
-
-        createdAt:serverTimestamp()
-
-      }
-
-    );
-
-
-    await setDoc(
-
-      doc(
-        db,
-        "chats",
-        user.uid
-      ),
-
-      {
-
-        userId:user.uid,
-
-        userEmail:user.email,
-
-        lastMessage:text,
-
-        updatedAt:serverTimestamp()
-
-      },
-
-      {merge:true}
-
-    );
-
-
-    input.value = "";
-
-
-  }catch(error){
-
-    alert(
-      "Message পাঠানো যায়নি।"
-    );
-
-    console.log(error);
-
-  }
+await signOut(auth);
+alert("Logout হয়েছে");
 
 };
 
 
-/* ============================= */
-/* CLOSE CHAT */
-/* ============================= */
+window.saveProfile=async function(){
 
-window.closeChat = function(){
+if(!auth.currentUser){
 
-  document
-    .getElementById("chatModal")
-    .classList.remove("show");
-
-
-  if(unsubscribeChat){
-
-    unsubscribeChat();
-
-    unsubscribeChat = null;
-
-  }
-
-};
-
-
-/* ============================= */
-/* ESCAPE HTML */
-/* ============================= */
-
-function escapeHTML(text){
-
-  return String(text)
-
-    .replaceAll("&","&amp;")
-
-    .replaceAll("<","&lt;")
-
-    .replaceAll(">","&gt;")
-
-    .replaceAll('"',"&quot;")
-
-    .replaceAll("'","&#039;");
+alert("আগে Login করুন");
+return;
 
 }
+
+await setDoc(
+doc(db,"users",auth.currentUser.uid),
+{
+name:document.getElementById("profileName").value,
+phone:document.getElementById("profilePhone").value,
+address:document.getElementById("profileAddress").value,
+email:auth.currentUser.email
+},
+{merge:true}
+);
+
+alert("Profile Save হয়েছে");
+
+};
+
+
+window.submitOrder=async function(){
+
+if(!auth.currentUser){
+
+alert("আগে Login করুন");
+return;
+
+}
+
+await addDoc(
+collection(db,"orders"),
+{
+userId:auth.currentUser.uid,
+userEmail:auth.currentUser.email,
+product:document.getElementById("orderProduct").value,
+name:document.getElementById("orderName").value,
+phone:document.getElementById("orderPhone").value,
+address:document.getElementById("orderAddress").value,
+note:document.getElementById("orderNote").value,
+status:"pending",
+createdAt:serverTimestamp()
+}
+);
+
+alert("Order সফলভাবে পাঠানো হয়েছে");
+
+openPage("homePage");
+
+};
+
+
+window.sendMessage=async function(){
+
+if(!auth.currentUser){
+
+alert("আগে Login করুন");
+return;
+
+}
+
+const text=document.getElementById("chatInput").value.trim();
+
+if(!text)return;
+
+const uid=auth.currentUser.uid;
+
+await setDoc(
+doc(db,"chats",uid),
+{
+userId:uid,
+userEmail:auth.currentUser.email,
+updatedAt:serverTimestamp(),
+lastMessage:text
+},
+{merge:true}
+);
+
+await addDoc(
+collection(db,"chats",uid,"messages"),
+{
+senderId:uid,
+senderName:auth.currentUser.email,
+text:text,
+createdAt:serverTimestamp()
+}
+);
+
+document.getElementById("chatInput").value="";
+
+};
+
+
+window.loadChat=function(){
+
+if(!auth.currentUser)return;
+
+const uid=auth.currentUser.uid;
+
+const q=query(
+collection(db,"chats",uid,"messages"),
+orderBy("createdAt","asc")
+);
+
+onSnapshot(q,(snap)=>{
+
+const box=document.getElementById("chatMessages");
+
+box.innerHTML="";
+
+snap.forEach(doc=>{
+
+const m=doc.data();
+
+const p=document.createElement("p");
+
+p.style.padding="8px";
+p.style.margin="5px";
+p.style.background="white";
+p.style.borderRadius="8px";
+
+p.textContent=m.senderId===uid
+?"আপনি: "+m.text
+:"Admin: "+m.text;
+
+box.appendChild(p);
+
+});
+
+box.scrollTop=box.scrollHeight;
+
+});
+
+};
 
 </script>
 
+
 <script>
 
-/* ==============================
-   PAGE SYSTEM
-   ============================== */
+function openPage(id){
 
-function openPage(pageId){
+document.querySelectorAll(".page").forEach(
+p=>p.classList.remove("active")
+);
 
-  document.querySelectorAll(".page").forEach(function(page){
-    page.classList.remove("active");
-  });
+const page=document.getElementById(id);
 
-  const page = document.getElementById(pageId);
+if(page)page.classList.add("active");
 
-  if(page){
-    page.classList.add("active");
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+window.scrollTo(0,0);
 
 }
 
-
-/* ==============================
-   MENU
-   ============================== */
 
 function toggleMenu(){
 
-  const menu =
-    document.getElementById("sideMenu");
+document.getElementById("sideMenu")
+.classList.toggle("active");
 
-  if(menu){
-    menu.classList.toggle("show");
-  }
+document.getElementById("overlay")
+.classList.toggle("active");
 
 }
 
-
-/* ==============================
-   CLOSE MENU
-   ============================== */
-
-document.addEventListener("click",function(event){
-
-  const menu =
-    document.getElementById("sideMenu");
-
-  const menuButton =
-    document.querySelector(
-      ".header .iconBtn"
-    );
-
-  if(!menu || !menuButton){
-    return;
-  }
-
-  if(
-    menu.classList.contains("show") &&
-    !menu.contains(event.target) &&
-    !menuButton.contains(event.target)
-  ){
-
-    menu.classList.remove("show");
-
-  }
-
-});
-
-
-/* ==============================
-   CALL US
-   ============================== */
 
 function callUs(){
 
-  window.location.href =
-    "tel:01869871037";
+window.location.href="tel:01869871037";
 
 }
 
 
-/* ==============================
-   WHATSAPP
-   ============================== */
+function openWhatsApp(){
 
-function whatsapp(){
-
-  window.open(
-    "https://wa.me/8801869871037",
-    "_blank"
-  );
+window.open(
+"https://wa.me/8801869871037",
+"_blank"
+);
 
 }
 
 
-/* ==============================
-   LOCATION
-   ============================== */
+function openLocation(){
 
-function locationPage(){
-
-  window.open(
-
-    "https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+19+No+Purbo+Chormotua+Sadar+Noakhali",
-
-    "_blank"
-
-  );
+window.open(
+"https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+19+No+Purbo+Chormotua+Sadar+Noakhali",
+"_blank"
+);
 
 }
 
 
-/* ==============================
-   NOTIFICATION
-   ============================== */
+function showNotification(){
 
-function showNotifications(){
-
-  alert(
-    "🔔 Notification\n\n" +
-    "ASFMR Arif Computer & Mobile Servicing Center-এ আপনাকে স্বাগতম।"
-  );
+alert("বর্তমানে নতুন কোনো Notification নেই।");
 
 }
 
 
-/* ==============================
-   LANGUAGE
-   ============================== */
+function openLanguage(){
 
-function languagePage(){
+const language=prompt(
+"ভাষা নির্বাচন করুন:\n1. বাংলা\n2. English\n3. العربية"
+);
 
-  alert(
-    "🌐 Language\n\n" +
-    "বাংলা\n\n" +
-    "English\n\n" +
-    "العربية"
-  );
+if(language==="1")alert("বাংলা নির্বাচন করা হয়েছে");
+if(language==="2")alert("English selected");
+if(language==="3")alert("تم اختيار العربية");
 
 }
 
 
-/* ==============================
-   SETTINGS
-   ============================== */
+const products=[
 
-function settingsPage(){
+{
+name:"Itel A50C",
+category:"mobile",
+price:"৳6,990",
+image:"https://fdn2.gsmarena.com/vv/pics/itel/itel-a50c-1.jpg"
+},
 
-  openPage("profilePage");
+{
+name:"Itel Power 70",
+category:"mobile",
+price:"৳10,990",
+image:"https://fdn2.gsmarena.com/vv/pics/itel/itel-power-70-1.jpg"
+},
 
+{
+name:"Symphony G26",
+category:"mobile",
+price:"Price on Request",
+image:"https://fdn2.gsmarena.com/vv/pics/symphony/symphony-g26-1.jpg"
+},
+
+{
+name:"Computer Desktop",
+category:"computer",
+price:"Price on Request",
+image:"https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+name:"Keyboard",
+category:"accessories",
+price:"Price on Request",
+image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+name:"Computer Mouse",
+category:"accessories",
+price:"Price on Request",
+image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"
 }
-
-
-/* ==============================
-   PRODUCT DATA
-   ============================== */
-
-const products = [
-
-  {
-    name:"Itel A50C",
-    price:"দাম জানতে যোগাযোগ করুন",
-    icon:"📱"
-  },
-
-  {
-    name:"Itel Power 70",
-    price:"দাম জানতে যোগাযোগ করুন",
-    icon:"📱"
-  },
-
-  {
-    name:"Symphony G26",
-    price:"দাম জানতে যোগাযোগ করুন",
-    icon:"📱"
-  },
-
-  {
-    name:"Computer / Desktop",
-    price:"দাম জানতে যোগাযোগ করুন",
-    icon:"💻"
-  },
-
-  {
-    name:"Keyboard",
-    price:"দাম জানতে যোগাযোগ করুন",
-    icon:"⌨️"
-  },
-
-  {
-    name:"Computer Mouse",
-    price:"দাম জানতে যোগাযোগ করুন",
-    icon:"🖱️"
-  }
 
 ];
 
 
-/* ==============================
-   PRODUCT CARD
-   ============================== */
+function productCard(p){
 
-function productCard(product){
+return`
 
-  const safeName =
-    String(product.name)
-      .replace(/\\/g,"\\\\")
-      .replace(/'/g,"\\'");
+<div class="product">
 
-  return `
+<img src="${p.image}"
+onerror="this.src='https://via.placeholder.com/300x200?text=Product'">
 
-    <div class="product">
+<h3>${p.name}</h3>
 
-      <div class="productImage">
+<div class="price">${p.price}</div>
 
-        ${product.icon}
+<button class="order"
+onclick="orderProduct('${p.name}')">
+Order Now
+</button>
 
-      </div>
+</div>
 
-      <h3>
-        ${product.name}
-      </h3>
-
-      <div class="price">
-        ${product.price}
-      </div>
-
-      <button
-        class="orderBtn"
-        onclick="orderProduct('${safeName}')"
-      >
-        🛒 Order Now
-      </button>
-
-    </div>
-
-  `;
+`;
 
 }
 
 
-/* ==============================
-   SHOW PRODUCTS
-   ============================== */
+function showProducts(category="all"){
 
-function showProducts(list){
+const box=document.getElementById("productList");
 
-  const html =
-    list.map(productCard).join("");
+if(!box)return;
 
-  const homeList =
-    document.getElementById(
-      "productList"
-    );
+let list=products;
 
-  const shopList =
-    document.getElementById(
-      "shopProductList"
-    );
+if(category!=="all"){
+list=products.filter(p=>p.category===category);
+}
 
-
-  if(homeList){
-    homeList.innerHTML = html;
-  }
-
-
-  if(shopList){
-    shopList.innerHTML = html;
-  }
+box.innerHTML=list.map(productCard).join("");
 
 }
 
-
-/* ==============================
-   SEARCH
-   ============================== */
 
 function searchProducts(){
 
-  const input =
-    document.getElementById(
-      "searchInput"
-    );
+const text=document.getElementById("searchBox")
+.value.toLowerCase();
 
-  if(!input){
-    return;
-  }
+const list=products.filter(p=>
+p.name.toLowerCase().includes(text)
+);
 
-  const keyword =
-    input.value
-      .toLowerCase()
-      .trim();
-
-
-  if(keyword === ""){
-
-    showProducts(products);
-
-    return;
-
-  }
-
-
-  const result =
-    products.filter(function(product){
-
-      return product.name
-        .toLowerCase()
-        .includes(keyword);
-
-    });
-
-
-  if(result.length === 0){
-
-    const message = `
-      <div class="empty"
-           style="grid-column:1/-1;">
-        😔 কোনো Product পাওয়া যায়নি।
-      </div>
-    `;
-
-    document.getElementById(
-      "productList"
-    ).innerHTML = message;
-
-    document.getElementById(
-      "shopProductList"
-    ).innerHTML = message;
-
-    return;
-
-  }
-
-
-  showProducts(result);
+document.getElementById("productList")
+.innerHTML=list.map(productCard).join("");
 
 }
 
 
-/* ==============================
-   INITIALIZE WEBSITE
-   ============================== */
+function searchShop(){
+
+const text=document.getElementById("shopSearch")
+.value.toLowerCase();
+
+const list=products.filter(p=>
+p.name.toLowerCase().includes(text)
+);
+
+document.getElementById("shopProducts")
+.innerHTML=list.map(productCard).join("");
+
+}
+
+
+function orderProduct(name){
+
+document.getElementById("orderProduct").value=name;
+
+openPage("orderPage");
+
+}
+
 
 document.addEventListener(
-  "DOMContentLoaded",
-  function(){
+"DOMContentLoaded",
+function(){
 
-    showProducts(products);
+showProducts();
 
-    openPage("homePage");
+document.getElementById("shopProducts")
+.innerHTML=products.map(productCard).join("");
 
-  }
+}
 );
 
 
-/* ==============================
-   ESCAPE KEY
-   ============================== */
-
 document.addEventListener(
-  "keydown",
-  function(event){
+"keydown",
+function(e){
 
-    if(event.key !== "Escape"){
-      return;
-    }
+if(e.key==="Escape"){
 
+document.getElementById("sideMenu")
+.classList.remove("active");
 
-    const login =
-      document.getElementById(
-        "loginModal"
-      );
+document.getElementById("overlay")
+.classList.remove("active");
 
-    const order =
-      document.getElementById(
-        "orderModal"
-      );
+}
 
-    const chat =
-      document.getElementById(
-        "chatModal"
-      );
-
-
-    if(login){
-      login.classList.remove("show");
-    }
-
-    if(order){
-      order.classList.remove("show");
-    }
-
-    if(chat){
-      chat.classList.remove("show");
-    }
-
-  }
-);
-
-
-/* ==============================
-   WEBSITE LOADED
-   ============================== */
-
-console.log(
-  "ASFMR ARIF Website Loaded Successfully"
+}
 );
 
 </script>
