@@ -489,63 +489,64 @@ loadChat();
 });
 
 
-window.signup=async function(){
-
-const email=prompt("Email দিন:");
-const password=prompt("Password দিন:");
-
-if(!email||!password)return;
-
-try{
 
 const result=await createUserWithEmailAndPassword(
-auth,email,password
-);
 
-await setDoc(
-doc(db,"users",result.user.uid),
-{
-email:email,
-name:"",
-phone:"",
-address:"",
-createdAt:serverTimestamp()
-}
-);
+window.signup = async function(){
 
-alert("Account তৈরি হয়েছে");
+  const email = prompt("আপনার Email দিন:");
+  if(!email) return;
 
-}catch(e){
+  const password = prompt("Password দিন (কমপক্ষে 6 অক্ষর):");
+  if(!password) return;
 
-alert(e.message);
+  if(password.length < 6){
+    alert("Password কমপক্ষে 6 অক্ষরের হতে হবে।");
+    return;
+  }
 
-}
+  try{
+
+    const result = await createUserWithEmailAndPassword(
+      auth,
+      email.trim(),
+      password
+    );
+
+    await setDoc(
+      doc(db, "users", result.user.uid),
+      {
+        email: result.user.email,
+        name: "",
+        phone: "",
+        address: "",
+        createdAt: serverTimestamp()
+      }
+    );
+
+    alert("✅ Sign Up সফল হয়েছে!");
+
+    openPage("profilePage");
+
+  }catch(error){
+
+    if(error.code === "auth/email-already-in-use"){
+      alert("এই Email দিয়ে আগে থেকেই Account আছে। Login করুন।");
+    }
+    else if(error.code === "auth/invalid-email"){
+      alert("সঠিক Email দিন।");
+    }
+    else if(error.code === "auth/weak-password"){
+      alert("Password কমপক্ষে 6 অক্ষরের হতে হবে।");
+    }
+    else{
+      alert("Sign Up হয়নি:\n" + error.message);
+    }
+
+  }
 
 };
 
-
-window.login=async function(){
-
-const email=prompt("Email দিন:");
-const password=prompt("Password দিন:");
-
-if(!email||!password)return;
-
-try{
-
-await signInWithEmailAndPassword(
-auth,email,password
-);
-
-alert("Login সফল হয়েছে");
-
-}catch(e){
-
-alert(e.message);
-
-}
-
-};
 
 
 window.logoutUser=async function(){
@@ -568,25 +569,7 @@ return;
 await setDoc(
 doc(db,"users",auth.currentUser.uid),
 {
-name:document.getElementById("profileName").value,
-phone:document.getElementById("profilePhone").value,
-address:document.getElementById("profileAddress").value,
-email:auth.currentUser.email
-},
-{merge:true}
-);
 
-alert("Profile Save হয়েছে");
-
-};
-
-
-window.submitOrder=async function(){
-
-if(!auth.currentUser){
-
-alert("আগে Login করুন");
-return;
 
 }
 
