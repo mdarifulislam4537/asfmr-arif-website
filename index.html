@@ -2027,24 +2027,28 @@ function escapeHTML(text){
 
 </script>
 
- </script> 
+<script>
+
+/* ==============================
+   PAGE SYSTEM
+   ============================== */
+
 function openPage(pageId){
 
   document.querySelectorAll(".page").forEach(function(page){
-
     page.classList.remove("active");
-
   });
 
   const page = document.getElementById(pageId);
 
   if(page){
-
     page.classList.add("active");
-
   }
 
-  window.scrollTo(0,0);
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
@@ -2058,13 +2062,15 @@ function toggleMenu(){
   const menu =
     document.getElementById("sideMenu");
 
-  menu.classList.toggle("show");
+  if(menu){
+    menu.classList.toggle("show");
+  }
 
 }
 
 
 /* ==============================
-   CLOSE MENU WHEN CLICK OUTSIDE
+   CLOSE MENU
    ============================== */
 
 document.addEventListener("click",function(event){
@@ -2072,14 +2078,19 @@ document.addEventListener("click",function(event){
   const menu =
     document.getElementById("sideMenu");
 
-  const button =
-    document.querySelector(".header .iconBtn");
+  const menuButton =
+    document.querySelector(
+      ".header .iconBtn"
+    );
+
+  if(!menu || !menuButton){
+    return;
+  }
 
   if(
-    menu &&
     menu.classList.contains("show") &&
     !menu.contains(event.target) &&
-    !button.contains(event.target)
+    !menuButton.contains(event.target)
   ){
 
     menu.classList.remove("show");
@@ -2090,7 +2101,7 @@ document.addEventListener("click",function(event){
 
 
 /* ==============================
-   CALL
+   CALL US
    ============================== */
 
 function callUs(){
@@ -2139,7 +2150,7 @@ function locationPage(){
 function showNotifications(){
 
   alert(
-    "🔔 নতুন Notification\n\n" +
+    "🔔 Notification\n\n" +
     "ASFMR Arif Computer & Mobile Servicing Center-এ আপনাকে স্বাগতম।"
   );
 
@@ -2154,10 +2165,9 @@ function languagePage(){
 
   alert(
     "🌐 Language\n\n" +
-    "বাংলা\n" +
-    "English\n" +
-    "العربية\n\n" +
-    "Language system পরবর্তী update-এ আরও উন্নত করা হবে।"
+    "বাংলা\n\n" +
+    "English\n\n" +
+    "العربية"
   );
 
 }
@@ -2169,10 +2179,7 @@ function languagePage(){
 
 function settingsPage(){
 
-  alert(
-    "⚙️ Settings\n\n" +
-    "আপনার Account এবং Profile Settings এখানে থাকবে।"
-  );
+  openPage("profilePage");
 
 }
 
@@ -2228,6 +2235,11 @@ const products = [
 
 function productCard(product){
 
+  const safeName =
+    String(product.name)
+      .replace(/\\/g,"\\\\")
+      .replace(/'/g,"\\'");
+
   return `
 
     <div class="product">
@@ -2239,24 +2251,18 @@ function productCard(product){
       </div>
 
       <h3>
-
         ${product.name}
-
       </h3>
 
       <div class="price">
-
         ${product.price}
-
       </div>
 
       <button
         class="orderBtn"
-        onclick="orderProduct('${product.name.replace(/'/g,"\\'")}')"
+        onclick="orderProduct('${safeName}')"
       >
-
         🛒 Order Now
-
       </button>
 
     </div>
@@ -2275,44 +2281,51 @@ function showProducts(list){
   const html =
     list.map(productCard).join("");
 
-
   const homeList =
-    document.getElementById("productList");
+    document.getElementById(
+      "productList"
+    );
 
   const shopList =
-    document.getElementById("shopProductList");
+    document.getElementById(
+      "shopProductList"
+    );
 
 
   if(homeList){
-
     homeList.innerHTML = html;
-
   }
 
 
   if(shopList){
-
     shopList.innerHTML = html;
-
   }
 
 }
 
 
 /* ==============================
-   SEARCH PRODUCT
+   SEARCH
    ============================== */
 
 function searchProducts(){
 
   const input =
-    document.getElementById("searchInput");
+    document.getElementById(
+      "searchInput"
+    );
+
+  if(!input){
+    return;
+  }
 
   const keyword =
-    input.value.toLowerCase().trim();
+    input.value
+      .toLowerCase()
+      .trim();
 
 
-  if(!keyword){
+  if(keyword === ""){
 
     showProducts(products);
 
@@ -2331,74 +2344,103 @@ function searchProducts(){
     });
 
 
+  if(result.length === 0){
+
+    const message = `
+      <div class="empty"
+           style="grid-column:1/-1;">
+        😔 কোনো Product পাওয়া যায়নি।
+      </div>
+    `;
+
+    document.getElementById(
+      "productList"
+    ).innerHTML = message;
+
+    document.getElementById(
+      "shopProductList"
+    ).innerHTML = message;
+
+    return;
+
+  }
+
+
   showProducts(result);
 
 }
 
 
 /* ==============================
-   INITIAL PRODUCTS
+   INITIALIZE WEBSITE
    ============================== */
 
-showProducts(products);
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    showProducts(products);
+
+    openPage("homePage");
+
+  }
+);
 
 
 /* ==============================
-   HOME PAGE
+   ESCAPE KEY
    ============================== */
 
-openPage("homePage");
+document.addEventListener(
+  "keydown",
+  function(event){
 
+    if(event.key !== "Escape"){
+      return;
+    }
 
-/* ==============================
-   ESC KEY CLOSE MODALS
-   ============================== */
-
-document.addEventListener("keydown",function(event){
-
-  if(event.key === "Escape"){
 
     const login =
-      document.getElementById("loginModal");
+      document.getElementById(
+        "loginModal"
+      );
 
     const order =
-      document.getElementById("orderModal");
+      document.getElementById(
+        "orderModal"
+      );
 
     const chat =
-      document.getElementById("chatModal");
+      document.getElementById(
+        "chatModal"
+      );
 
 
     if(login){
-
       login.classList.remove("show");
-
     }
 
     if(order){
-
       order.classList.remove("show");
-
     }
 
     if(chat){
-
       chat.classList.remove("show");
-
     }
 
   }
-
-});
+);
 
 
 /* ==============================
-   CONSOLE MESSAGE
+   WEBSITE LOADED
    ============================== */
 
 console.log(
-  "ASFMR Arif Website Loaded Successfully"
+  "ASFMR ARIF Website Loaded Successfully"
 );
 
 </script>
+
 </body>
 </html>
