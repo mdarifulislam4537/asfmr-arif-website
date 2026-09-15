@@ -682,8 +682,11 @@ header .search{margin-bottom:15px}
 <span class="badge">3</span>
 </button>
 
-<button class="iconBtn" onclick="openPage('profile')">
+  
+<button class="iconBtn" onclick="accountAction()">
 👤
+</button>
+  
 </button>
 
 </div>
@@ -1068,6 +1071,101 @@ onclick="closeMenu(event)">
 </div>
 </div>
 
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+<div class="modalBox">
+
+<button class="close" onclick="closeLogin()">✕</button>
+
+<div id="loginArea">
+
+<h2>🔐 Login</h2>
+
+<p style="color:#687386">
+আপনার ASFMR ARIF account-এ Login করুন।
+</p>
+
+<input
+class="orderInput"
+id="loginEmail"
+type="email"
+placeholder="Email">
+
+<input
+class="orderInput"
+id="loginPassword"
+type="password"
+placeholder="Password">
+
+<button class="primary" onclick="loginUser()">
+🔐 Login
+</button>
+
+<button
+class="primary"
+style="background:#eef4ff;color:#1769ff"
+onclick="showSignup()">
+📝 Create New Account
+</button>
+
+<p id="loginStatus"></p>
+
+</div>
+
+
+<div id="signupArea" style="display:none">
+
+<h2>📝 Create Account</h2>
+
+<input
+class="orderInput"
+id="signupName"
+placeholder="আপনার নাম">
+
+<input
+class="orderInput"
+id="signupPhone"
+placeholder="মোবাইল নম্বর">
+
+<input
+class="orderInput"
+id="signupEmail"
+type="email"
+placeholder="Email">
+
+<input
+class="orderInput"
+id="signupPassword"
+type="password"
+placeholder="Password">
+
+<input
+class="orderInput"
+id="signupPassword2"
+type="password"
+placeholder="Password আবার লিখুন">
+
+<button class="primary" onclick="signupUser()">
+📝 Create Account
+</button>
+
+<button
+class="primary"
+style="background:#f3f4f6;color:#333"
+onclick="showLogin()">
+← Login
+</button>
+
+<p id="signupStatus"></p>
+
+</div>
+
+</div>
+
+</div>
 
 <!-- MODAL -->
 
@@ -2320,7 +2418,383 @@ slide=(slide+1)%3;
 
 },4000);
 
-</script>
 
+<!-- Firebase -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDA4mQXIhU_Wc3T6je3o_K61VGRp1x_LQs",
+  authDomain: "asfmr-arif.firebaseapp.com",
+  projectId: "asfmr-arif",
+  storageBucket: "asfmr-arif.firebasestorage.app",
+  messagingSenderId: "571370137781",
+  appId: "1:571370137781:web:1cfa73d077be06347876fc",
+  measurementId: "G-RWJFBHYWM9"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+
+window.firebaseAuth = getAuth(firebaseApp);
+window.firebaseDB = getFirestore(firebaseApp);
+
+window.firebaseFns = {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+  onAuthStateChanged,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp
+};
+</script>
+  /* =========================
+FIREBASE ACCOUNT SYSTEM
+========================= */
+
+let currentUser = null;
+
+function openLogin(){
+
+    document.getElementById("loginModal")
+    .classList.add("show");
+
+    showLogin();
+}
+
+
+function closeLogin(){
+
+    document.getElementById("loginModal")
+    .classList.remove("show");
+
+}
+
+
+/* LOGIN */
+
+async function loginUser(){
+
+    const email =
+        document.getElementById("loginEmail").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    const status =
+        document.getElementById("loginStatus");
+
+    if(!email || !password){
+
+        status.innerHTML =
+        "⚠️ Email এবং Password দিন।";
+
+        return;
+    }
+
+    try{
+
+        await firebaseFns.signInWithEmailAndPassword(
+            firebaseAuth,
+            email,
+            password
+        );
+
+        status.innerHTML =
+        "✅ Login সফল হয়েছে।";
+
+        setTimeout(closeLogin,700);
+
+    }catch(error){
+
+        status.innerHTML =
+        "❌ Email অথবা Password সঠিক নয়।";
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* SIGN UP */
+
+async function signupUser(){
+
+    const name =
+        document.getElementById("signupName").value.trim();
+
+    const phone =
+        document.getElementById("signupPhone").value.trim();
+
+    const email =
+        document.getElementById("signupEmail").value.trim();
+
+    const password =
+        document.getElementById("signupPassword").value;
+
+    const password2 =
+        document.getElementById("signupPassword2").value;
+
+    const status =
+        document.getElementById("signupStatus");
+
+
+    if(!name || !phone || !email || !password){
+
+        status.innerHTML =
+        "⚠️ সব তথ্য পূরণ করুন।";
+
+        return;
+    }
+
+
+    if(password.length < 6){
+
+        status.innerHTML =
+        "⚠️ Password কমপক্ষে ৬ অক্ষরের হতে হবে।";
+
+        return;
+    }
+
+
+    if(password !== password2){
+
+        status.innerHTML =
+        "⚠️ দুইটি Password একই নয়।";
+
+        return;
+    }
+
+
+    try{
+
+        const result =
+        await firebaseFns.createUserWithEmailAndPassword(
+            firebaseAuth,
+            email,
+            password
+        );
+
+
+        const user = result.user;
+
+
+        await firebaseFns.updateProfile(
+            user,
+            {
+                displayName:name
+            }
+        );
+
+
+        await firebaseFns.setDoc(
+            firebaseFns.doc(
+                firebaseDB,
+                "users",
+                user.uid
+            ),
+            {
+                uid:user.uid,
+                name:name,
+                phone:phone,
+                email:email,
+                createdAt:
+                firebaseFns.serverTimestamp()
+            }
+        );
+
+
+        status.innerHTML =
+        "✅ Account তৈরি হয়েছে।";
+
+
+        setTimeout(()=>{
+
+            closeLogin();
+            openPage("profile");
+
+        },800);
+
+
+    }catch(error){
+
+        console.error(error);
+
+        if(error.code ===
+        "auth/email-already-in-use"){
+
+            status.innerHTML =
+            "❌ এই Email দিয়ে আগে থেকেই account আছে।";
+
+        }else{
+
+            status.innerHTML =
+            "❌ Account তৈরি করা যায়নি।";
+
+        }
+
+    }
+
+}
+
+
+/* LOGIN / SIGNUP SWITCH */
+
+function showSignup(){
+
+    document.getElementById("loginArea")
+    .style.display="none";
+
+    document.getElementById("signupArea")
+    .style.display="block";
+
+}
+
+
+function showLogin(){
+
+    document.getElementById("loginArea")
+    .style.display="block";
+
+    document.getElementById("signupArea")
+    .style.display="none";
+
+}
+
+
+/* AUTH STATE */
+
+firebaseFns.onAuthStateChanged(
+    firebaseAuth,
+    async user => {
+
+        currentUser = user;
+
+        updateAccountButton();
+
+        if(user){
+
+            await loadFirebaseProfile();
+
+        }
+
+    }
+);
+
+
+/* ACCOUNT BUTTON */
+
+function updateAccountButton(){
+
+    const buttons =
+    document.querySelectorAll(".iconBtn");
+
+    if(!buttons.length)return;
+
+    if(currentUser){
+
+        buttons[buttons.length-1].innerHTML =
+        "👤";
+
+    }else{
+
+        buttons[buttons.length-1].innerHTML =
+        "🔐";
+
+    }
+
+}
+
+
+/* PROFILE FROM FIREBASE */
+
+async function loadFirebaseProfile(){
+
+    if(!currentUser)return;
+
+    try{
+
+        const snap =
+        await firebaseFns.getDoc(
+            firebaseFns.doc(
+                firebaseDB,
+                "users",
+                currentUser.uid
+            )
+        );
+
+
+        if(!snap.exists())return;
+
+        const data=snap.data();
+
+
+        if(data.name)
+            document.getElementById("pname").value=data.name;
+
+        if(data.phone)
+            document.getElementById("pphone").value=data.phone;
+
+        if(data.email)
+            document.getElementById("email").value=data.email;
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* LOGOUT */
+
+async function logoutUser(){
+
+    try{
+
+        await firebaseFns.signOut(firebaseAuth);
+
+        alert("আপনি Logout করেছেন।");
+
+        openPage("home");
+
+    }catch(error){
+
+        alert("Logout করা যায়নি।");
+
+    }
+
+}
+</script>
 </body>
 </html>
