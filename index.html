@@ -2031,6 +2031,387 @@ function escapeHTML(text){
 <!-- ============================= -->
 <!-- STEP 2 END -->
 <!-- ============================= -->
+<script>
+/* =====================================
+   STEP 3 : WEBSITE FUNCTIONS
+   ===================================== */
 
+
+/* ==============================
+   PAGE OPEN
+   ============================== */
+
+function openPage(pageId){
+
+  document.querySelectorAll(".page").forEach(function(page){
+
+    page.classList.remove("active");
+
+  });
+
+  const page = document.getElementById(pageId);
+
+  if(page){
+
+    page.classList.add("active");
+
+  }
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* ==============================
+   MENU
+   ============================== */
+
+function toggleMenu(){
+
+  const menu =
+    document.getElementById("sideMenu");
+
+  menu.classList.toggle("show");
+
+}
+
+
+/* ==============================
+   CLOSE MENU WHEN CLICK OUTSIDE
+   ============================== */
+
+document.addEventListener("click",function(event){
+
+  const menu =
+    document.getElementById("sideMenu");
+
+  const button =
+    document.querySelector(".header .iconBtn");
+
+  if(
+    menu &&
+    menu.classList.contains("show") &&
+    !menu.contains(event.target) &&
+    !button.contains(event.target)
+  ){
+
+    menu.classList.remove("show");
+
+  }
+
+});
+
+
+/* ==============================
+   CALL
+   ============================== */
+
+function callUs(){
+
+  window.location.href =
+    "tel:01869871037";
+
+}
+
+
+/* ==============================
+   WHATSAPP
+   ============================== */
+
+function whatsapp(){
+
+  window.open(
+    "https://wa.me/8801869871037",
+    "_blank"
+  );
+
+}
+
+
+/* ==============================
+   LOCATION
+   ============================== */
+
+function locationPage(){
+
+  window.open(
+
+    "https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+19+No+Purbo+Chormotua+Sadar+Noakhali",
+
+    "_blank"
+
+  );
+
+}
+
+
+/* ==============================
+   NOTIFICATION
+   ============================== */
+
+function showNotifications(){
+
+  alert(
+    "🔔 নতুন Notification\n\n" +
+    "ASFMR Arif Computer & Mobile Servicing Center-এ আপনাকে স্বাগতম।"
+  );
+
+}
+
+
+/* ==============================
+   LANGUAGE
+   ============================== */
+
+function languagePage(){
+
+  alert(
+    "🌐 Language\n\n" +
+    "বাংলা\n" +
+    "English\n" +
+    "العربية\n\n" +
+    "Language system পরবর্তী update-এ আরও উন্নত করা হবে।"
+  );
+
+}
+
+
+/* ==============================
+   SETTINGS
+   ============================== */
+
+function settingsPage(){
+
+  alert(
+    "⚙️ Settings\n\n" +
+    "আপনার Account এবং Profile Settings এখানে থাকবে।"
+  );
+
+}
+
+
+/* ==============================
+   PRODUCT DATA
+   ============================== */
+
+const products = [
+
+  {
+    name:"Itel A50C",
+    price:"দাম জানতে যোগাযোগ করুন",
+    icon:"📱"
+  },
+
+  {
+    name:"Itel Power 70",
+    price:"দাম জানতে যোগাযোগ করুন",
+    icon:"📱"
+  },
+
+  {
+    name:"Symphony G26",
+    price:"দাম জানতে যোগাযোগ করুন",
+    icon:"📱"
+  },
+
+  {
+    name:"Computer / Desktop",
+    price:"দাম জানতে যোগাযোগ করুন",
+    icon:"💻"
+  },
+
+  {
+    name:"Keyboard",
+    price:"দাম জানতে যোগাযোগ করুন",
+    icon:"⌨️"
+  },
+
+  {
+    name:"Computer Mouse",
+    price:"দাম জানতে যোগাযোগ করুন",
+    icon:"🖱️"
+  }
+
+];
+
+
+/* ==============================
+   PRODUCT CARD
+   ============================== */
+
+function productCard(product){
+
+  return `
+
+    <div class="product">
+
+      <div class="productImage">
+
+        ${product.icon}
+
+      </div>
+
+      <h3>
+
+        ${product.name}
+
+      </h3>
+
+      <div class="price">
+
+        ${product.price}
+
+      </div>
+
+      <button
+        class="orderBtn"
+        onclick="orderProduct('${product.name.replace(/'/g,"\\'")}')"
+      >
+
+        🛒 Order Now
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==============================
+   SHOW PRODUCTS
+   ============================== */
+
+function showProducts(list){
+
+  const html =
+    list.map(productCard).join("");
+
+
+  const homeList =
+    document.getElementById("productList");
+
+  const shopList =
+    document.getElementById("shopProductList");
+
+
+  if(homeList){
+
+    homeList.innerHTML = html;
+
+  }
+
+
+  if(shopList){
+
+    shopList.innerHTML = html;
+
+  }
+
+}
+
+
+/* ==============================
+   SEARCH PRODUCT
+   ============================== */
+
+function searchProducts(){
+
+  const input =
+    document.getElementById("searchInput");
+
+  const keyword =
+    input.value.toLowerCase().trim();
+
+
+  if(!keyword){
+
+    showProducts(products);
+
+    return;
+
+  }
+
+
+  const result =
+    products.filter(function(product){
+
+      return product.name
+        .toLowerCase()
+        .includes(keyword);
+
+    });
+
+
+  showProducts(result);
+
+}
+
+
+/* ==============================
+   INITIAL PRODUCTS
+   ============================== */
+
+showProducts(products);
+
+
+/* ==============================
+   HOME PAGE
+   ============================== */
+
+openPage("homePage");
+
+
+/* ==============================
+   ESC KEY CLOSE MODALS
+   ============================== */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    const login =
+      document.getElementById("loginModal");
+
+    const order =
+      document.getElementById("orderModal");
+
+    const chat =
+      document.getElementById("chatModal");
+
+
+    if(login){
+
+      login.classList.remove("show");
+
+    }
+
+    if(order){
+
+      order.classList.remove("show");
+
+    }
+
+    if(chat){
+
+      chat.classList.remove("show");
+
+    }
+
+  }
+
+});
+
+
+/* ==============================
+   CONSOLE MESSAGE
+   ============================== */
+
+console.log(
+  "ASFMR Arif Website Loaded Successfully"
+);
+
+</script>
 </body>
 </html>
