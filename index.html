@@ -1,427 +1,646 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASFMR ARIF | Computer & Mobile</title>
+<title>ASFMR Arif Computer & Mobile Servicing Center</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,sans-serif;
-background:#f7f8fc;
-color:#171a21;
-padding-bottom:75px;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
+.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:75px}
 
 header{
-background:white;
-padding:18px 20px 12px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-position:sticky;
-top:0;
-z-index:10;
-box-shadow:0 2px 12px #00000012;
+background:white;padding:14px 15px;position:sticky;top:0;z-index:10;
+box-shadow:0 2px 12px rgba(0,0,0,.08)
 }
-
+.top{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
 .logo{
-font-size:24px;
-font-weight:900;
-color:#111;
+width:45px;height:45px;border-radius:13px;
+background:linear-gradient(135deg,#1261ff,#00b8ff);
+color:white;display:flex;align-items:center;justify-content:center;
+font-size:12px;font-weight:bold
 }
-
-.logo span{
-color:#e94b72;
-}
+.brand b{font-size:15px}
+.brand small{display:block;color:#777;margin-top:3px}
 
 .menu{
-font-size:28px;
-color:#555;
-}
-
-.hero{
-margin:18px;
-border-radius:25px;
-padding:35px 22px;
-background:linear-gradient(135deg,#ff687e,#ff9270);
-color:white;
-min-height:250px;
-display:flex;
-align-items:center;
-overflow:hidden;
-}
-
-.hero h1{
-font-size:30px;
-line-height:1.25;
-margin-bottom:12px;
-}
-
-.hero p{
-font-size:15px;
-line-height:1.7;
-margin-bottom:18px;
-}
-
-.hero-btn{
-background:white;
-color:#e64b6f;
-padding:12px 20px;
-border-radius:25px;
-text-decoration:none;
-font-weight:bold;
-display:inline-block;
+border:0;background:#eef3fa;width:42px;height:42px;
+border-radius:12px;font-size:25px
 }
 
 .search{
-margin:20px;
-background:white;
-border-radius:15px;
-padding:15px 18px;
-box-shadow:0 4px 15px #0000000d;
-color:#999;
-font-size:15px;
+margin-top:12px;background:#f1f4f8;border-radius:14px;
+display:flex;align-items:center;padding:0 12px
+}
+.search input{
+width:100%;border:0;outline:0;background:transparent;
+padding:13px 8px;font-size:14px
 }
 
-.search span{
-font-size:20px;
-margin-right:10px;
-}
+main{padding:14px}
 
-section{
-padding:10px 20px 25px;
+.banner{
+height:185px;border-radius:22px;padding:25px;color:white;
+background:linear-gradient(135deg,#1458e8,#05a9e8);
+position:relative;overflow:hidden;margin-bottom:8px
 }
+.banner:nth-child(2){background:linear-gradient(135deg,#7b32d9,#e048b0)}
+.banner:nth-child(3){background:linear-gradient(135deg,#008b6f,#16c77a)}
+.banner h1{font-size:24px;margin:0 0 10px;max-width:280px}
+.banner p{max-width:280px;line-height:1.5}
+.art{position:absolute;right:10px;bottom:-10px;font-size:100px}
+
+.dots{text-align:center;margin:8px}
+.dot{
+display:inline-block;width:8px;height:8px;background:#cbd3df;
+border-radius:50%;margin:3px
+}
+.dot.active{width:22px;border-radius:8px;background:#1769ff}
 
 .title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:18px;
+display:flex;justify-content:space-between;align-items:center;
+margin:18px 2px 10px
 }
-
-.title h2{
-font-size:21px;
-}
-
-.title a{
-color:#e94b72;
-text-decoration:none;
-font-size:14px;
-}
+.title h2{font-size:19px;margin:0}
+.title button{border:0;background:none;color:#1769ff}
 
 .categories{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
+display:grid;grid-template-columns:repeat(4,1fr);gap:9px
 }
-
 .category{
-background:white;
-border-radius:18px;
-padding:17px 5px;
-text-align:center;
-box-shadow:0 3px 12px #0000000c;
+border:0;background:white;border-radius:17px;padding:13px 5px;
+box-shadow:0 3px 12px rgba(0,0,0,.05)
+}
+.category div{font-size:28px}
+.category small{display:block;margin-top:6px}
+
+.products{
+display:grid;grid-template-columns:repeat(2,1fr);gap:11px
+}
+.card{
+background:white;border-radius:18px;overflow:hidden;
+box-shadow:0 3px 13px rgba(0,0,0,.06)
+}
+.product-img{
+height:125px;background:linear-gradient(135deg,#e8f1ff,#f8fbff);
+display:flex;align-items:center;justify-content:center;font-size:65px
+}
+.info{padding:11px}
+.info h3{font-size:14px;line-height:1.35;margin:0 0 7px}
+.tag{
+font-size:11px;color:#1769ff;background:#edf4ff;
+padding:5px 8px;border-radius:8px
+}
+.action{
+width:100%;border:0;background:#1769ff;color:white;
+border-radius:10px;padding:9px;margin-top:9px
 }
 
-.category .icon{
-width:52px;
-height:52px;
-margin:auto auto 9px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:27px;
-background:#f1efff;
-}
-
-.category:nth-child(2) .icon{background:#e9f8ff}
-.category:nth-child(3) .icon{background:#fff2e7}
-.category:nth-child(4) .icon{background:#fceafa}
-
-.category p{
-font-size:12px;
-font-weight:bold;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-}
-
-.service{
-background:white;
-border-radius:18px;
-padding:18px;
-box-shadow:0 3px 14px #0000000c;
-}
-
-.service .bigicon{
-font-size:35px;
-margin-bottom:10px;
-}
-
-.service h3{
-font-size:16px;
-margin-bottom:7px;
-}
-
-.service p{
-font-size:12px;
-color:#777;
-line-height:1.6;
-}
+.page{display:none}
+.page.active{display:block}
 
 .contact{
-margin:20px;
-padding:28px 20px;
-border-radius:22px;
-background:#171c27;
-color:white;
-text-align:center;
+background:white;border-radius:18px;padding:17px;margin-top:18px;
+line-height:1.6
 }
 
-.contact h2{
-font-size:23px;
-margin-bottom:12px;
+.profile{
+background:white;border-radius:20px;padding:20px
+}
+.profile input{
+width:100%;padding:13px;margin:7px 0;
+border:1px solid #dbe2ec;border-radius:12px;outline:0
+}
+.save{
+width:100%;padding:13px;border:0;border-radius:12px;
+background:#1769ff;color:white;margin-top:7px
 }
 
-.contact p{
-color:#cbd0d8;
-line-height:1.8;
-font-size:14px;
+.bottom{
+position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+width:min(520px,100%);background:white;
+display:grid;grid-template-columns:repeat(4,1fr);
+padding:8px 5px;z-index:20;
+border-top:1px solid #e5e9ef
 }
+.nav{
+border:0;background:none;color:#7b8494;padding:5px
+}
+.nav span{font-size:22px}
+.nav b{display:block;font-size:11px;margin-top:3px}
+.nav.active{color:#1769ff}
 
-.buttons{
-margin-top:18px;
+.drawer-bg{
+display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);
+z-index:50
 }
+.drawer-bg.show{display:block}
+.drawer{
+position:absolute;right:12px;top:65px;width:235px;
+background:white;border-radius:18px;padding:8px
+}
+.drawer button{
+width:100%;border:0;background:white;text-align:left;
+padding:14px;border-radius:10px
+}
+.drawer button:hover{background:#f1f5fa}
 
-.btn{
-display:inline-block;
-padding:12px 18px;
-border-radius:25px;
-text-decoration:none;
-font-weight:bold;
-margin:4px;
-background:#ff5e79;
-color:white;
-}
-
-.btn.whatsapp{
-background:#20b965;
-}
-
-.map{
-background:#4d7cff;
-}
-
-.bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-height:70px;
-background:white;
-display:flex;
-justify-content:space-around;
-align-items:center;
-box-shadow:0 -3px 15px #00000018;
-z-index:20;
-}
-
-.bottom-nav a{
-text-decoration:none;
-color:#777;
-text-align:center;
-font-size:11px;
-}
-
-.bottom-nav .navicon{
-font-size:22px;
-display:block;
-margin-bottom:3px;
-}
-
-.bottom-nav a.active{
-color:#e94b72;
-font-weight:bold;
-}
-
-footer{
-text-align:center;
-padding:20px;
-font-size:12px;
-color:#999;
-}
-
-@media(max-width:380px){
-.categories{
-grid-template-columns:repeat(2,1fr);
-}
-.hero h1{
-font-size:27px;
-}
+.no-result{
+display:none;text-align:center;padding:30px;color:#777
 }
 </style>
 </head>
 
 <body>
 
+<div class="app">
+
 <header>
-<div class="logo">ASFMR <span>ARIF</span></div>
-<div class="menu">☰</div>
-</header>
+<div class="top">
+
+<div class="brand">
+<div class="logo">ASFMR</div>
+<div>
+<b>ASFMR Arif</b>
+<small>Computer & Mobile Center</small>
+</div>
+</div>
+
+<button class="menu" onclick="menu()">⋮</button>
+
+</div>
 
 <div class="search">
 <span>🔍</span>
-আপনার প্রয়োজনীয় সেবা খুঁজুন...
+<input id="search" placeholder="Search products & services..."
+oninput="searchProducts()">
 </div>
 
-<div class="hero">
-<div>
-<h1>আপনার বিশ্বস্ত<br>ডিজিটাল সেবা কেন্দ্র</h1>
+</header>
 
-<p>
-Mobile Servicing, Computer,
-Photocopy ও Online Services
-এক জায়গায়।
-</p>
 
-<a class="hero-btn" href="tel:01869871037">
-📞 এখনই যোগাযোগ করুন
-</a>
+<main>
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<div id="bannerArea">
+
+<div class="banner">
+<h1>Mobile & Computer Service</h1>
+<p>বিশ্বস্ত মোবাইল ও কম্পিউটার সার্ভিস এক জায়গায়।</p>
+<div class="art">📱</div>
 </div>
+
+<div class="banner" style="display:none">
+<h1>Print • Copy • Online</h1>
+<p>প্রিন্ট, ফটোকপি, স্ক্যান ও অনলাইন সকল কাজ।</p>
+<div class="art">🖨️</div>
 </div>
 
-<section>
+<div class="banner" style="display:none">
+<h1>Mobile Parts & Accessories</h1>
+<p>Mobile Parts, Charger, Cable ও Accessories পাওয়া যায়।</p>
+<div class="art">🔧</div>
+</div>
+
+</div>
+
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
 
 <div class="title">
-<h2>সেবার ক্যাটাগরি</h2>
-<a href="#services">সব দেখুন</a>
+<h2>Categories</h2>
+<button onclick="openPage('services')">See All</button>
 </div>
 
 <div class="categories">
 
-<div class="category">
-<div class="icon">📱</div>
-<p>Mobile</p>
-</div>
+<button class="category" onclick="category('Mobile')">
+<div>📱</div><small>Mobile</small>
+</button>
 
-<div class="category">
-<div class="icon">💻</div>
-<p>Computer</p>
-</div>
+<button class="category" onclick="category('Computer')">
+<div>💻</div><small>Computer</small>
+</button>
 
-<div class="category">
-<div class="icon">📄</div>
-<p>Photocopy</p>
-</div>
+<button class="category" onclick="category('Print')">
+<div>🖨️</div><small>Print</small>
+</button>
 
-<div class="category">
-<div class="icon">🌐</div>
-<p>Online</p>
-</div>
+<button class="category" onclick="category('Online')">
+<div>🌐</div><small>Online</small>
+</button>
 
 </div>
 
-</section>
-
-<section id="services">
 
 <div class="title">
-<h2>জনপ্রিয় সেবা</h2>
-<a href="#contact">যোগাযোগ</a>
+<h2>Popular Products</h2>
+<button onclick="openPage('shop')">See All</button>
 </div>
 
-<div class="services">
+<div id="homeProducts" class="products"></div>
 
-<div class="service">
-<div class="bigicon">📱</div>
-<h3>Mobile Servicing</h3>
-<p>মোবাইলের বিভিন্ন সমস্যা নির্ণয় ও প্রয়োজনীয় সার্ভিসিং।</p>
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="page">
+
+<div class="title">
+<h2>Our Services</h2>
 </div>
 
-<div class="service">
-<div class="bigicon">💻</div>
-<h3>Computer Services</h3>
-<p>কম্পিউটারের বিভিন্ন অফিসিয়াল ও প্রয়োজনীয় কাজ।</p>
+<div id="serviceProducts" class="products"></div>
+
+</section>
+
+
+<!-- SHOP -->
+
+<section id="shop" class="page">
+
+<div class="title">
+<h2>Shop Products</h2>
 </div>
 
-<div class="service">
-<div class="bigicon">📄</div>
-<h3>Photocopy</h3>
-<p>মানসম্মত ফটোকপি ও ডকুমেন্টের কাজ।</p>
+<div id="shopProducts" class="products"></div>
+
+<div id="noResult" class="no-result">
+কোনো Product বা Service পাওয়া যায়নি।
 </div>
 
-<div class="service">
-<div class="bigicon">🌐</div>
-<h3>Online Services</h3>
-<p>বিভিন্ন অনলাইন ও ডিজিটাল সেবা।</p>
+<div class="contact">
+<b>📍 দোকানের ঠিকানা</b>
+<p>
+Sofigonj Uttor Bazar,<br>
+19 No. Purbo Chormotua,<br>
+Sadar, Noakhali
+</p>
+
+<b>📞 Mobile</b>
+<p>01869871037</p>
 </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="page">
+
+<div class="title">
+<h2>My Profile</h2>
+</div>
+
+<div class="profile">
+
+<input id="name" placeholder="আপনার নাম">
+
+<input id="phone" placeholder="মোবাইল নম্বর">
+
+<input id="address" placeholder="আপনার ঠিকানা">
+
+<button class="save" onclick="saveProfile()">
+Save Profile
+</button>
+
+<div id="profileInfo" style="margin-top:15px"></div>
 
 </div>
 
 </section>
 
-<div class="contact" id="contact">
+</main>
 
-<h2>যোগাযোগ করুন</h2>
 
-<p>📍 সোফিগঞ্জ উত্তর বাজার</p>
+<!-- BOTTOM NAV -->
 
-<p>📞 01869871037</p>
+<nav class="bottom">
 
-<div class="buttons">
+<button class="nav active" onclick="openPage('home')" id="navHome">
+<span>🏠</span>
+<b>Home</b>
+</button>
 
-<a class="btn" href="tel:01869871037">
-📞 Call Now
-</a>
+<button class="nav" onclick="openPage('services')" id="navServices">
+<span>🛠️</span>
+<b>Services</b>
+</button>
 
-<a class="btn whatsapp" href="https://wa.me/8801869871037">
-💬 WhatsApp
-</a>
+<button class="nav" onclick="openPage('shop')" id="navShop">
+<span>🛍️</span>
+<b>Shop</b>
+</button>
 
-<a class="btn map"
-href="https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+Bangladesh">
-📍 Google Maps
-</a>
+<button class="nav" onclick="openPage('profile')" id="navProfile">
+<span>👤</span>
+<b>Profile</b>
+</button>
+
+</nav>
+
+</div>
+
+
+<!-- 3 DOT MENU -->
+
+<div class="drawer-bg" id="drawerBg" onclick="closeMenu(event)">
+
+<div class="drawer">
+
+<button onclick="callNow()">📞 Call Now</button>
+
+<button onclick="whatsapp()">💬 WhatsApp</button>
+
+<button onclick="map()">📍 Google Maps</button>
+
+<button onclick="openPage('profile');menu()">
+👤 Profile / Login
+</button>
+
+<button onclick="menu()">✕ Close</button>
 
 </div>
 
 </div>
 
-<footer>
-© 2026 ASFMR Arif Computer & Mobile Servicing Center
-</footer>
 
-<div class="bottom-nav">
+<script>
 
-<a class="active" href="#">
-<span class="navicon">⌂</span>
-Home
-</a>
+const products=[
 
-<a href="#services">
-<span class="navicon">▦</span>
-Services
-</a>
+["Mobile Display","Mobile","📱"],
+["Mobile Battery","Mobile","🔋"],
+["Charging Port","Mobile","🔌"],
+["Mobile Speaker","Mobile","🔊"],
+["Mobile Microphone","Mobile","🎤"],
+["Mobile Camera Parts","Mobile","📷"],
+["Mobile Software Service","Mobile","⚙️"],
+["Mobile Hardware Service","Mobile","🔧"],
+["Charger & Cable","Mobile","🔌"],
+["Memory Card","Mobile","💾"],
 
-<a href="tel:01869871037">
-<span class="navicon">📞</span>
-Call
-</a>
+["Windows Install","Computer","💻"],
+["Microsoft Office Install","Computer","📄"],
+["SSD / HDD","Computer","💽"],
+["RAM","Computer","🧠"],
+["Keyboard & Mouse","Computer","⌨️"],
+["Printer Setup","Computer","🖨️"],
+["Computer Cleaning","Computer","🧹"],
+["Antivirus Setup","Computer","🛡️"],
+["Router & Network Setup","Computer","📡"],
+["USB / Adapter","Computer","🔌"],
 
-<a href="https://wa.me/8801869871037">
-<span class="navicon">💬</span>
-WhatsApp
-</a>
+["Print Paper","Print","📃"],
+["Print Colour / Ink","Print","🎨"],
+["Photocopy","Print","📑"],
+["Print Service","Print","🖨️"],
+["Scan Service","Print","📄"],
+["Photo Print","Print","🖼️"],
+
+["Online Application","Online","🌐"],
+["Birth Certificate Online","Online","📝"],
+["NID Related Online Service","Online","🪪"],
+["Email / Digital Service","Online","✉️"],
+
+["Computer Official Work","Computer","💼"],
+["Mobile Accessories","Mobile","🎧"],
+["Phone Charger","Mobile","🔋"],
+["Data Cable","Mobile","🔗"],
+["Earphone","Mobile","🎧"],
+["USB Flash Drive","Computer","💾"],
+["Laptop Accessories","Computer","💻"],
+["Document Lamination","Print","📄"],
+["Typing Service","Online","⌨️"],
+["Online Form Fill Up","Online","🌐"]
+
+];
+
+
+function card(item){
+
+return `
+<div class="card">
+
+<div class="product-img">
+${item[2]}
+</div>
+
+<div class="info">
+
+<h3>${item[0]}</h3>
+
+<span class="tag">${item[1]}</span>
+
+<button class="action"
+onclick="whatsapp()">
+যোগাযোগ করুন
+</button>
 
 </div>
+
+</div>
+`;
+
+}
+
+
+function render(){
+
+document.getElementById("homeProducts").innerHTML=
+products.slice(0,6).map(card).join("");
+
+document.getElementById("serviceProducts").innerHTML=
+products.map(card).join("");
+
+document.getElementById("shopProducts").innerHTML=
+products.map(card).join("");
+
+}
+
+render();
+
+
+function openPage(page){
+
+document.querySelectorAll(".page")
+.forEach(x=>x.classList.remove("active"));
+
+document.getElementById(page)
+.classList.add("active");
+
+document.querySelectorAll(".nav")
+.forEach(x=>x.classList.remove("active"));
+
+if(page==="home")
+document.getElementById("navHome").classList.add("active");
+
+if(page==="services")
+document.getElementById("navServices").classList.add("active");
+
+if(page==="shop")
+document.getElementById("navShop").classList.add("active");
+
+if(page==="profile")
+document.getElementById("navProfile").classList.add("active");
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
+
+function searchProducts(){
+
+let text=document.getElementById("search")
+.value.toLowerCase();
+
+openPage("shop");
+
+let result=products.filter(x=>
+(x[0]+" "+x[1])
+.toLowerCase()
+.includes(text)
+);
+
+document.getElementById("shopProducts")
+.innerHTML=result.map(card).join("");
+
+document.getElementById("noResult")
+.style.display=result.length?"none":"block";
+
+}
+
+
+function category(cat){
+
+document.getElementById("search").value=cat;
+
+searchProducts();
+
+}
+
+
+function menu(){
+
+document.getElementById("drawerBg")
+.classList.toggle("show");
+
+}
+
+
+function closeMenu(e){
+
+if(e.target.id==="drawerBg")
+menu();
+
+}
+
+
+function callNow(){
+
+location.href="tel:01869871037";
+
+}
+
+
+function whatsapp(){
+
+location.href="https://wa.me/8801869871037";
+
+}
+
+
+function map(){
+
+location.href=
+"https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+19+No+Purbo+Chormotua+Sadar+Noakhali";
+
+}
+
+
+function saveProfile(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let address=document.getElementById("address").value;
+
+if(name==="" || phone===""){
+alert("নাম ও মোবাইল নম্বর দিন।");
+return;
+}
+
+localStorage.setItem("asfmrProfile",
+JSON.stringify({
+name:name,
+phone:phone,
+address:address
+}));
+
+showProfile();
+
+}
+
+
+function showProfile(){
+
+let data=localStorage.getItem("asfmrProfile");
+
+if(!data)return;
+
+data=JSON.parse(data);
+
+document.getElementById("name").value=data.name;
+document.getElementById("phone").value=data.phone;
+document.getElementById("address").value=data.address;
+
+document.getElementById("profileInfo").innerHTML=
+`
+<div style="
+background:#edf6ff;
+padding:14px;
+border-radius:13px;
+line-height:1.7">
+
+<b>👤 ${data.name}</b><br>
+📞 ${data.phone}<br>
+📍 ${data.address || "ঠিকানা দেওয়া হয়নি"}
+
+</div>
+`;
+
+}
+
+showProfile();
+
+
+let slide=0;
+
+setInterval(function(){
+
+let banners=document.querySelectorAll(".banner");
+let dots=document.querySelectorAll(".dot");
+
+banners[slide].style.display="none";
+dots[slide].classList.remove("active");
+
+slide=(slide+1)%banners.length;
+
+banners[slide].style.display="block";
+dots[slide].classList.add("active");
+
+},4000);
+
+</script>
 
 </body>
 </html>
-
