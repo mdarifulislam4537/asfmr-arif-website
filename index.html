@@ -2,153 +2,274 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASFMR Arif Computer & Mobile Servicing Center</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1769ff">
+<title>ASFMR ARIF | Computer & Mobile Servicing Center</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:75px}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f3f6fa;color:#172033}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.app{min-height:100vh;background:#f3f6fa}
 
 header{
-background:white;padding:14px 15px;position:sticky;top:0;z-index:10;
-box-shadow:0 2px 12px rgba(0,0,0,.08)
+background:#fff;position:sticky;top:0;z-index:100;
+box-shadow:0 2px 12px #0001
 }
-.top{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
-.logo{
-width:45px;height:45px;border-radius:13px;
-background:linear-gradient(135deg,#1261ff,#00b8ff);
-color:white;display:flex;align-items:center;justify-content:center;
-font-size:12px;font-weight:bold
-}
-.brand b{font-size:15px}
-.brand small{display:block;color:#777;margin-top:3px}
 
-.menu{
-border:0;background:#eef3fa;width:42px;height:42px;
-border-radius:12px;font-size:25px
+.top{
+height:72px;display:flex;align-items:center;
+gap:15px;padding:8px 18px
+}
+
+.menuBtn,.iconBtn{
+border:0;background:white;width:42px;height:42px;
+border-radius:50%;font-size:23px;display:grid;
+place-items:center;position:relative
+}
+
+.logo{
+width:48px;height:48px;border-radius:12px;
+background:linear-gradient(135deg,#111,#ef3155);
+color:#fff;display:grid;place-items:center;
+font-weight:900;font-size:11px
+}
+
+.brand{display:flex;align-items:center;gap:10px;flex:1}
+.brand b{font-size:19px}
+.brand small{display:block;color:#7b8490;font-size:10px;margin-top:2px}
+
+.topRight{display:flex;align-items:center;gap:2px}
+
+.badge{
+position:absolute;right:1px;top:1px;
+background:#e82c63;color:#fff;font-size:9px;
+width:17px;height:17px;border-radius:50%;
+display:grid;place-items:center
 }
 
 .search{
-margin-top:12px;background:#f1f4f8;border-radius:14px;
-display:flex;align-items:center;padding:0 12px
+max-width:900px;margin:8px auto 12px;
+background:#f1f4f8;border-radius:25px;
+display:flex;align-items:center;padding:0 17px
 }
 .search input{
-width:100%;border:0;outline:0;background:transparent;
-padding:13px 8px;font-size:14px
+border:0;outline:0;background:transparent;
+width:100%;padding:13px 10px
 }
 
-main{padding:14px}
+.container{max-width:1200px;margin:auto;padding:15px}
 
-.banner{
-height:185px;border-radius:22px;padding:25px;color:white;
-background:linear-gradient(135deg,#1458e8,#05a9e8);
-position:relative;overflow:hidden;margin-bottom:8px
+.ads{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:10px
 }
-.banner:nth-child(2){background:linear-gradient(135deg,#7b32d9,#e048b0)}
-.banner:nth-child(3){background:linear-gradient(135deg,#008b6f,#16c77a)}
-.banner h1{font-size:24px;margin:0 0 10px;max-width:280px}
-.banner p{max-width:280px;line-height:1.5}
-.art{position:absolute;right:10px;bottom:-10px;font-size:100px}
 
-.dots{text-align:center;margin:8px}
+.ad{
+height:125px;border-radius:17px;padding:16px;
+color:#fff;position:relative;overflow:hidden
+}
+.ad h3{margin:0;font-size:18px;max-width:190px}
+.ad p{font-size:11px;margin:7px 0}
+.ad button{
+border:0;background:#fff;color:#1769ff;
+border-radius:15px;padding:6px 12px;font-size:10px
+}
+.ad span{
+position:absolute;right:10px;bottom:-12px;
+font-size:65px
+}
+.ad1{background:linear-gradient(135deg,#124dd7,#13a7e8)}
+.ad2{background:linear-gradient(135deg,#272e7b,#8e3fc8)}
+.ad3{background:linear-gradient(135deg,#f19b21,#ef3c50)}
+
+.hero{
+margin-top:14px;min-height:230px;border-radius:23px;
+padding:30px;color:#fff;position:relative;overflow:hidden;
+background:linear-gradient(120deg,#123ac5,#7225c7,#079fe4)
+}
+.hero h1{font-size:36px;max-width:550px;margin:0 0 12px}
+.hero p{max-width:580px;font-size:15px;line-height:1.6}
+.hero button{
+border:0;background:#ff4778;color:white;
+padding:12px 20px;border-radius:25px
+}
+.heroArt{
+position:absolute;right:25px;bottom:-25px;
+font-size:150px
+}
+
+.dots{text-align:center;margin:9px}
 .dot{
-display:inline-block;width:8px;height:8px;background:#cbd3df;
-border-radius:50%;margin:3px
+display:inline-block;width:8px;height:8px;
+background:#ccd4df;border-radius:50%;margin:3px
 }
-.dot.active{width:22px;border-radius:8px;background:#1769ff}
+.dot.active{width:23px;background:#1769ff;border-radius:8px}
 
-.title{
-display:flex;justify-content:space-between;align-items:center;
-margin:18px 2px 10px
+.sectionHead{
+display:flex;align-items:center;justify-content:space-between;
+margin:22px 0 11px
 }
-.title h2{font-size:19px;margin:0}
-.title button{border:0;background:none;color:#1769ff}
+.sectionHead h2{margin:0;font-size:21px}
+.sectionHead button{
+border:0;background:none;color:#1769ff
+}
 
 .categories{
-display:grid;grid-template-columns:repeat(4,1fr);gap:9px
+display:flex;gap:10px;overflow-x:auto;padding-bottom:5px
 }
 .category{
-border:0;background:white;border-radius:17px;padding:13px 5px;
-box-shadow:0 3px 12px rgba(0,0,0,.05)
+min-width:105px;background:#fff;border:0;
+border-radius:17px;padding:14px 8px;
+box-shadow:0 3px 12px #0000000a
 }
-.category div{font-size:28px}
-.category small{display:block;margin-top:6px}
+.category .ico{font-size:30px}
+.category small{display:block;margin-top:7px}
 
 .products{
-display:grid;grid-template-columns:repeat(2,1fr);gap:11px
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:13px
 }
+
 .card{
-background:white;border-radius:18px;overflow:hidden;
-box-shadow:0 3px 13px rgba(0,0,0,.06)
+background:#fff;border-radius:18px;overflow:hidden;
+box-shadow:0 3px 12px #0001
 }
-.product-img{
-height:125px;background:linear-gradient(135deg,#e8f1ff,#f8fbff);
-display:flex;align-items:center;justify-content:center;font-size:65px
+.pic{
+height:150px;
+display:grid;place-items:center;
+background:linear-gradient(135deg,#eaf2ff,#f8fbff);
+font-size:72px
 }
 .info{padding:11px}
 .info h3{font-size:14px;line-height:1.35;margin:0 0 7px}
-.tag{
-font-size:11px;color:#1769ff;background:#edf4ff;
-padding:5px 8px;border-radius:8px
+.catTag{
+font-size:10px;color:#1769ff;
+background:#edf4ff;border-radius:8px;padding:5px 8px
 }
-.action{
-width:100%;border:0;background:#1769ff;color:white;
-border-radius:10px;padding:9px;margin-top:9px
+.buy{
+width:100%;margin-top:9px;border:0;
+background:#1769ff;color:#fff;border-radius:10px;padding:9px
 }
 
 .page{display:none}
 .page.active{display:block}
 
-.contact{
-background:white;border-radius:18px;padding:17px;margin-top:18px;
-line-height:1.6
-}
-
-.profile{
-background:white;border-radius:20px;padding:20px
-}
-.profile input{
-width:100%;padding:13px;margin:7px 0;
-border:1px solid #dbe2ec;border-radius:12px;outline:0
-}
-.save{
-width:100%;padding:13px;border:0;border-radius:12px;
-background:#1769ff;color:white;margin-top:7px
-}
-
 .bottom{
-position:fixed;bottom:0;left:50%;transform:translateX(-50%);
-width:min(520px,100%);background:white;
-display:grid;grid-template-columns:repeat(4,1fr);
-padding:8px 5px;z-index:20;
-border-top:1px solid #e5e9ef
+display:none;
+position:fixed;bottom:0;left:0;right:0;
+background:#fff;border-top:1px solid #ddd;
+z-index:120;grid-template-columns:repeat(4,1fr);
+padding:7px 5px
 }
 .nav{
-border:0;background:none;color:#7b8494;padding:5px
+border:0;background:none;color:#7b8494
 }
-.nav span{font-size:22px}
-.nav b{display:block;font-size:11px;margin-top:3px}
+.nav span{display:block;font-size:22px}
+.nav b{font-size:11px}
 .nav.active{color:#1769ff}
 
-.drawer-bg{
-display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);
-z-index:50
+.overlay{
+position:fixed;inset:0;background:#0006;
+z-index:200;display:none
 }
-.drawer-bg.show{display:block}
+.overlay.show{display:block}
+
 .drawer{
-position:absolute;right:12px;top:65px;width:235px;
-background:white;border-radius:18px;padding:8px
+position:absolute;left:10px;top:65px;
+width:285px;max-height:calc(100vh - 80px);
+overflow:auto;background:#fff;border-radius:18px;
+padding:8px;box-shadow:0 15px 40px #0004
 }
 .drawer button{
-width:100%;border:0;background:white;text-align:left;
-padding:14px;border-radius:10px
+width:100%;border:0;background:#fff;
+padding:13px;text-align:left;border-radius:10px
 }
 .drawer button:hover{background:#f1f5fa}
 
-.no-result{
-display:none;text-align:center;padding:30px;color:#777
+.modal{
+position:fixed;inset:0;background:#0007;
+z-index:300;display:none;align-items:center;
+justify-content:center;padding:18px
+}
+.modal.show{display:flex}
+.modalBox{
+width:min(500px,100%);max-height:90vh;
+overflow:auto;background:#fff;border-radius:22px;
+padding:20px
+}
+.close{
+float:right;border:0;background:#eef2f7;
+width:35px;height:35px;border-radius:50%
+}
+
+.profilePhoto{
+width:100px;height:100px;border-radius:50%;
+background:#eaf1ff;margin:10px auto;
+display:grid;place-items:center;
+font-size:50px;overflow:hidden
+}
+.profilePhoto img{width:100%;height:100%;object-fit:cover}
+.profileBox input,.profileBox select{
+width:100%;padding:12px;margin:5px 0;
+border:1px solid #d8e0ea;border-radius:10px;outline:0
+}
+.primary{
+width:100%;border:0;background:#1769ff;
+color:#fff;padding:12px;border-radius:11px;margin-top:8px
+}
+
+.about{
+line-height:1.8;color:#566174
+}
+
+.settingsRow{
+display:flex;align-items:center;
+justify-content:space-between;
+padding:14px 5px;border-bottom:1px solid #edf0f4
+}
+
+.switch{
+width:45px;height:24px;border-radius:20px;
+background:#ccd4df;position:relative
+}
+.switch:after{
+content:"";width:20px;height:20px;
+background:white;border-radius:50%;
+position:absolute;top:2px;left:2px
+}
+.switch.on{background:#1769ff}
+.switch.on:after{left:23px}
+
+@media(max-width:800px){
+.products{grid-template-columns:repeat(3,1fr)}
+.hero h1{font-size:28px}
+}
+
+@media(max-width:600px){
+.top{padding:8px 10px}
+.brand b{font-size:15px}
+.brand small{font-size:8px}
+.ads{grid-template-columns:repeat(3,1fr)}
+.ad{height:105px;padding:11px}
+.ad h3{font-size:13px}
+.ad p{font-size:8px}
+.ad span{font-size:45px}
+.hero{min-height:205px;padding:22px}
+.hero h1{font-size:27px}
+.heroArt{font-size:85px;right:5px}
+.products{grid-template-columns:repeat(2,1fr)}
+.pic{height:120px}
+.bottom{display:grid}
+.container{padding-bottom:85px}
+}
+
+@media(min-width:1000px){
+header .search{margin-bottom:15px}
 }
 </style>
 </head>
@@ -158,54 +279,91 @@ display:none;text-align:center;padding:30px;color:#777
 <div class="app">
 
 <header>
+
 <div class="top">
 
+<button class="menuBtn" onclick="openMenu()">⋮</button>
+
 <div class="brand">
-<div class="logo">ASFMR</div>
+<div class="logo">ASFMR<br>ARIF</div>
 <div>
-<b>ASFMR Arif</b>
-<small>Computer & Mobile Center</small>
+<b>ASFMR ARIF</b>
+<small>Computer & Mobile Servicing Center</small>
 </div>
 </div>
 
-<button class="menu" onclick="menu()">⋮</button>
+<div class="topRight">
 
+<button class="iconBtn" onclick="focusSearch()">🔍</button>
+
+<button class="iconBtn" onclick="openNotifications()">
+🔔
+<span class="badge">3</span>
+</button>
+
+<button class="iconBtn" onclick="openPage('profile')">👤</button>
+
+</div>
 </div>
 
 <div class="search">
 <span>🔍</span>
-<input id="search" placeholder="Search products & services..."
+<input id="search"
+placeholder="আপনার প্রয়োজনীয় সেবা বা পণ্য খুঁজুন..."
 oninput="searchProducts()">
 </div>
 
 </header>
 
 
-<main>
+<div class="container">
+
 
 <!-- HOME -->
 
 <section id="home" class="page active">
 
-<div id="bannerArea">
+<div class="ads">
 
-<div class="banner">
-<h1>Mobile & Computer Service</h1>
-<p>বিশ্বস্ত মোবাইল ও কম্পিউটার সার্ভিস এক জায়গায়।</p>
-<div class="art">📱</div>
+<div class="ad ad1">
+<h3>Latest Mobile</h3>
+<p>Original & Best Price</p>
+<button onclick="openPage('shop')">Shop Now →</button>
+<span>📱</span>
 </div>
 
-<div class="banner" style="display:none">
-<h1>Print • Copy • Online</h1>
-<p>প্রিন্ট, ফটোকপি, স্ক্যান ও অনলাইন সকল কাজ।</p>
-<div class="art">🖨️</div>
+<div class="ad ad2">
+<h3>Laptop Service & Sales</h3>
+<p>কম্পিউটার সার্ভিসিং</p>
+<button onclick="openPage('shop')">Shop Now →</button>
+<span>💻</span>
 </div>
 
-<div class="banner" style="display:none">
-<h1>Mobile Parts & Accessories</h1>
-<p>Mobile Parts, Charger, Cable ও Accessories পাওয়া যায়।</p>
-<div class="art">🔧</div>
+<div class="ad ad3">
+<h3>ফটোকপি & প্রিন্ট</h3>
+<p>প্রিন্ট • স্ক্যান • অনলাইন</p>
+<button onclick="openPage('services')">সেবা দেখুন</button>
+<span>🖨️</span>
 </div>
+
+</div>
+
+
+<div class="hero">
+
+<h1>আপনার বিশ্বস্ত কম্পিউটার ও মোবাইল সার্ভিসিং সেন্টার</h1>
+
+<p>
+মোবাইল সার্ভিসিং, কম্পিউটার সার্ভিসিং,
+ফটোকপি, প্রিন্ট, স্ক্যান, অনলাইন সেবা
+এবং প্রয়োজনীয় পণ্য ও Accessories।
+</p>
+
+<button onclick="openPage('services')">
+📞 এখনই যোগাযোগ করুন →
+</button>
+
+<div class="heroArt">💻📱</div>
 
 </div>
 
@@ -216,35 +374,51 @@ oninput="searchProducts()">
 </div>
 
 
-<div class="title">
-<h2>Categories</h2>
-<button onclick="openPage('services')">See All</button>
+<div class="sectionHead">
+<h2>Product Categories</h2>
+<button onclick="openPage('shop')">See All →</button>
 </div>
 
 <div class="categories">
 
-<button class="category" onclick="category('Mobile')">
-<div>📱</div><small>Mobile</small>
+<button class="category" onclick="filterCategory('All')">
+<div class="ico">🛍️</div><small>All</small>
 </button>
 
-<button class="category" onclick="category('Computer')">
-<div>💻</div><small>Computer</small>
+<button class="category" onclick="filterCategory('Button Phone')">
+<div class="ico">☎️</div><small>Button Phone</small>
 </button>
 
-<button class="category" onclick="category('Print')">
-<div>🖨️</div><small>Print</small>
+<button class="category" onclick="filterCategory('Android Phone')">
+<div class="ico">📱</div><small>Android</small>
 </button>
 
-<button class="category" onclick="category('Online')">
-<div>🌐</div><small>Online</small>
+<button class="category" onclick="filterCategory('Headphone')">
+<div class="ico">🎧</div><small>Headphone</small>
+</button>
+
+<button class="category" onclick="filterCategory('Mobile Parts')">
+<div class="ico">🔧</div><small>Mobile Parts</small>
+</button>
+
+<button class="category" onclick="filterCategory('Computer')">
+<div class="ico">💻</div><small>Computer</small>
+</button>
+
+<button class="category" onclick="filterCategory('Printer')">
+<div class="ico">🖨️</div><small>Printer</small>
+</button>
+
+<button class="category" onclick="filterCategory('Accessories')">
+<div class="ico">🔌</div><small>Accessories</small>
 </button>
 
 </div>
 
 
-<div class="title">
+<div class="sectionHead">
 <h2>Popular Products</h2>
-<button onclick="openPage('shop')">See All</button>
+<button onclick="openPage('shop')">See All →</button>
 </div>
 
 <div id="homeProducts" class="products"></div>
@@ -256,8 +430,8 @@ oninput="searchProducts()">
 
 <section id="services" class="page">
 
-<div class="title">
-<h2>Our Services</h2>
+<div class="sectionHead">
+<h2>All Services</h2>
 </div>
 
 <div id="serviceProducts" class="products"></div>
@@ -269,26 +443,14 @@ oninput="searchProducts()">
 
 <section id="shop" class="page">
 
-<div class="title">
+<div class="sectionHead">
 <h2>Shop Products</h2>
 </div>
 
 <div id="shopProducts" class="products"></div>
 
-<div id="noResult" class="no-result">
-কোনো Product বা Service পাওয়া যায়নি।
-</div>
-
-<div class="contact">
-<b>📍 দোকানের ঠিকানা</b>
-<p>
-Sofigonj Uttor Bazar,<br>
-19 No. Purbo Chormotua,<br>
-Sadar, Noakhali
-</p>
-
-<b>📞 Mobile</b>
-<p>01869871037</p>
+<div id="noResult" style="display:none;text-align:center;padding:35px">
+কোনো Product পাওয়া যায়নি।
 </div>
 
 </section>
@@ -298,53 +460,95 @@ Sadar, Noakhali
 
 <section id="profile" class="page">
 
-<div class="title">
+<div class="sectionHead">
 <h2>My Profile</h2>
 </div>
 
-<div class="profile">
+<div class="profileBox">
 
-<input id="name" placeholder="আপনার নাম">
+<div class="profilePhoto" id="photoPreview">👤</div>
 
-<input id="phone" placeholder="মোবাইল নম্বর">
+<input type="file" id="photo" accept="image/*"
+onchange="previewPhoto()">
 
-<input id="address" placeholder="আপনার ঠিকানা">
+<input id="pname" placeholder="পূর্ণ নাম">
 
-<button class="save" onclick="saveProfile()">
-Save Profile
+<input id="pphone" placeholder="মোবাইল নম্বর">
+
+<input id="email" placeholder="Email">
+
+<input id="dob" type="date">
+
+<select id="gender">
+<option value="">Gender নির্বাচন করুন</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+<select id="division">
+<option>Division নির্বাচন করুন</option>
+<option>Chattogram</option>
+<option>Dhaka</option>
+<option>Barishal</option>
+<option>Khulna</option>
+<option>Rajshahi</option>
+<option>Rangpur</option>
+<option>Mymensingh</option>
+<option>Sylhet</option>
+</select>
+
+<input id="district" placeholder="District">
+
+<input id="upazila" placeholder="Upazila">
+
+<input id="union" placeholder="Union">
+
+<input id="village" placeholder="Village / মহল্লা">
+
+<input id="post" placeholder="Post Office">
+
+<input id="postal" placeholder="Postal Code">
+
+<textarea id="fulladdress"
+style="width:100%;padding:12px;border:1px solid #d8e0ea;border-radius:10px;margin-top:5px"
+placeholder="বিস্তারিত ঠিকানা"></textarea>
+
+<button class="primary" onclick="saveProfile()">
+💾 Save Profile
 </button>
 
-<div id="profileInfo" style="margin-top:15px"></div>
+<div id="profileSaved" style="margin-top:12px"></div>
 
 </div>
 
 </section>
 
-</main>
+</div>
 
 
-<!-- BOTTOM NAV -->
+<!-- BOTTOM -->
 
 <nav class="bottom">
 
-<button class="nav active" onclick="openPage('home')" id="navHome">
-<span>🏠</span>
-<b>Home</b>
+<button class="nav active" id="nHome"
+onclick="openPage('home')">
+<span>🏠</span><b>Home</b>
 </button>
 
-<button class="nav" onclick="openPage('services')" id="navServices">
-<span>🛠️</span>
-<b>Services</b>
+<button class="nav" id="nMessenger"
+onclick="messenger()">
+<span>💬</span><b>Messenger</b>
 </button>
 
-<button class="nav" onclick="openPage('shop')" id="navShop">
-<span>🛍️</span>
-<b>Shop</b>
+<button class="nav" id="nShop"
+onclick="openPage('shop')">
+<span>🛍️</span><b>Shop</b>
 </button>
 
-<button class="nav" onclick="openPage('profile')" id="navProfile">
-<span>👤</span>
-<b>Profile</b>
+<button class="nav" id="nProfile"
+onclick="openPage('profile')">
+<span>👤</span><b>Profile</b>
 </button>
 
 </nav>
@@ -354,96 +558,174 @@ Save Profile
 
 <!-- 3 DOT MENU -->
 
-<div class="drawer-bg" id="drawerBg" onclick="closeMenu(event)">
+<div class="overlay" id="menuOverlay"
+onclick="closeMenu(event)">
 
 <div class="drawer">
 
-<button onclick="callNow()">📞 Call Now</button>
-
-<button onclick="whatsapp()">💬 WhatsApp</button>
-
-<button onclick="map()">📍 Google Maps</button>
-
-<button onclick="openPage('profile');menu()">
-👤 Profile / Login
+<button onclick="openPage('services');closeMenuNow()">
+🛠️ All Services
 </button>
 
-<button onclick="menu()">✕ Close</button>
+<button onclick="openPage('shop');closeMenuNow()">
+🛍️ Shop / Products
+</button>
+
+<button onclick="messenger()">
+💬 Messenger
+</button>
+
+<button onclick="callNow()">
+📞 Call Us
+</button>
+
+<button onclick="whatsapp()">
+💚 WhatsApp
+</button>
+
+<button onclick="openMap()">
+📍 Our Location
+</button>
+
+<button onclick="openAbout()">
+ℹ️ About Us
+</button>
+
+<button onclick="openHours()">
+🕐 Opening Hours
+</button>
+
+<button onclick="openNotifications()">
+🔔 Notifications
+</button>
+
+<button onclick="openLanguage()">
+🌐 Language
+</button>
+
+<button onclick="openSettings()">
+⚙️ Settings
+</button>
+
+<button onclick="openPrivacy()">
+🔒 Privacy Policy
+</button>
+
+<button onclick="openTerms()">
+📄 Terms & Conditions
+</button>
 
 </div>
+</div>
 
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+<div class="modalBox">
+<button class="close" onclick="closeModal()">✕</button>
+<div id="modalContent"></div>
+</div>
 </div>
 
 
 <script>
 
+/* PRODUCTS */
+
 const products=[
 
-["Mobile Display","Mobile","📱"],
-["Mobile Battery","Mobile","🔋"],
-["Charging Port","Mobile","🔌"],
-["Mobile Speaker","Mobile","🔊"],
-["Mobile Microphone","Mobile","🎤"],
-["Mobile Camera Parts","Mobile","📷"],
-["Mobile Software Service","Mobile","⚙️"],
-["Mobile Hardware Service","Mobile","🔧"],
-["Charger & Cable","Mobile","🔌"],
-["Memory Card","Mobile","💾"],
+["Nokia Button Phone","Button Phone","☎️"],
+["Symphony Button Phone","Button Phone","☎️"],
+["Itel Button Phone","Button Phone","☎️"],
+["Android Smartphone","Android Phone","📱"],
+["Samsung Android Phone","Android Phone","📱"],
+["Xiaomi Android Phone","Android Phone","📱"],
+["Oppo Android Phone","Android Phone","📱"],
+["Vivo Android Phone","Android Phone","📱"],
 
-["Windows Install","Computer","💻"],
-["Microsoft Office Install","Computer","📄"],
-["SSD / HDD","Computer","💽"],
+["Mobile Display","Mobile Parts","📱"],
+["Mobile Battery","Mobile Parts","🔋"],
+["Charging Port","Mobile Parts","🔌"],
+["Mobile Speaker","Mobile Parts","🔊"],
+["Mobile Microphone","Mobile Parts","🎤"],
+["Mobile Camera Parts","Mobile Parts","📷"],
+["Mobile IC / Parts","Mobile Parts","🔧"],
+
+["Bluetooth Headphone","Headphone","🎧"],
+["Neckband","Headphone","🎧"],
+["Earphone","Headphone","🎵"],
+["Gaming Headphone","Headphone","🎮"],
+
+["Mobile Charger","Accessories","🔋"],
+["Type-C Cable","Accessories","🔗"],
+["Micro USB Cable","Accessories","🔌"],
+["Power Adapter","Accessories","⚡"],
+["Memory Card","Accessories","💾"],
+["USB Flash Drive","Accessories","💾"],
+["Power Bank","Accessories","🔋"],
+["Mobile Cover","Accessories","📱"],
+["Screen Protector","Accessories","🛡️"],
+
+["Laptop","Computer","💻"],
+["Desktop Computer","Computer","🖥️"],
+["Laptop Battery","Computer","🔋"],
 ["RAM","Computer","🧠"],
-["Keyboard & Mouse","Computer","⌨️"],
-["Printer Setup","Computer","🖨️"],
-["Computer Cleaning","Computer","🧹"],
-["Antivirus Setup","Computer","🛡️"],
-["Router & Network Setup","Computer","📡"],
-["USB / Adapter","Computer","🔌"],
+["SSD","Computer","💽"],
+["HDD","Computer","💽"],
+["Keyboard","Computer","⌨️"],
+["Mouse","Computer","🖱️"],
+["Router","Computer","📡"],
 
-["Print Paper","Print","📃"],
-["Print Colour / Ink","Print","🎨"],
+["Printer","Printer","🖨️"],
+["Printer Ink","Printer","🎨"],
+["Printer Cartridge","Printer","🖨️"],
+["Print Paper","Printer","📄"],
+
+["Colour Print","Print","🎨"],
 ["Photocopy","Print","📑"],
-["Print Service","Print","🖨️"],
-["Scan Service","Print","📄"],
+["Scan","Print","📄"],
 ["Photo Print","Print","🖼️"],
+["Lamination","Print","📃"],
 
-["Online Application","Online","🌐"],
-["Birth Certificate Online","Online","📝"],
-["NID Related Online Service","Online","🪪"],
-["Email / Digital Service","Online","✉️"],
+["Windows Install","Computer Service","💻"],
+["Computer Software Service","Computer Service","⚙️"],
+["Computer Hardware Service","Computer Service","🔧"],
+["Virus / Antivirus Service","Computer Service","🛡️"],
+["Computer Cleaning","Computer Service","🧹"],
 
-["Computer Official Work","Computer","💼"],
-["Mobile Accessories","Mobile","🎧"],
-["Phone Charger","Mobile","🔋"],
-["Data Cable","Mobile","🔗"],
-["Earphone","Mobile","🎧"],
-["USB Flash Drive","Computer","💾"],
-["Laptop Accessories","Computer","💻"],
-["Document Lamination","Print","📄"],
-["Typing Service","Online","⌨️"],
-["Online Form Fill Up","Online","🌐"]
+["Mobile Software Service","Mobile Service","⚙️"],
+["Mobile Hardware Service","Mobile Service","🔧"],
+["Display Change Service","Mobile Service","📱"],
+["Battery Change Service","Mobile Service","🔋"],
+["Charging Problem Service","Mobile Service","🔌"],
+
+["Online Application","Online Service","🌐"],
+["Birth Certificate Online","Online Service","📝"],
+["NID Related Online Service","Online Service","🪪"],
+["Online Form Fill Up","Online Service","🌐"],
+["Email / Digital Service","Online Service","✉️"],
+["Computer Official Work","Online Service","💼"]
 
 ];
 
 
-function card(item){
+/* CARD */
+
+function card(p){
 
 return `
 <div class="card">
 
-<div class="product-img">
-${item[2]}
-</div>
+<div class="pic">${p[2]}</div>
 
 <div class="info">
 
-<h3>${item[0]}</h3>
+<h3>${p[0]}</h3>
 
-<span class="tag">${item[1]}</span>
+<span class="catTag">${p[1]}</span>
 
-<button class="action"
-onclick="whatsapp()">
+<button class="buy" onclick="whatsapp()">
 যোগাযোগ করুন
 </button>
 
@@ -458,10 +740,13 @@ onclick="whatsapp()">
 function render(){
 
 document.getElementById("homeProducts").innerHTML=
-products.slice(0,6).map(card).join("");
+products.slice(0,10).map(card).join("");
 
 document.getElementById("serviceProducts").innerHTML=
-products.map(card).join("");
+products.filter(p=>
+p[1].includes("Service") ||
+p[1]=="Print"
+).map(card).join("");
 
 document.getElementById("shopProducts").innerHTML=
 products.map(card).join("");
@@ -471,96 +756,129 @@ products.map(card).join("");
 render();
 
 
+/* PAGE */
+
 function openPage(page){
 
 document.querySelectorAll(".page")
-.forEach(x=>x.classList.remove("active"));
+.forEach(p=>p.classList.remove("active"));
 
-document.getElementById(page)
-.classList.add("active");
+document.getElementById(page).classList.add("active");
 
 document.querySelectorAll(".nav")
-.forEach(x=>x.classList.remove("active"));
+.forEach(n=>n.classList.remove("active"));
 
-if(page==="home")
-document.getElementById("navHome").classList.add("active");
+if(page=="home")nHome.classList.add("active");
+if(page=="shop")nShop.classList.add("active");
+if(page=="profile")nProfile.classList.add("active");
 
-if(page==="services")
-document.getElementById("navServices").classList.add("active");
-
-if(page==="shop")
-document.getElementById("navShop").classList.add("active");
-
-if(page==="profile")
-document.getElementById("navProfile").classList.add("active");
+if(page=="services"){
+nMessenger.classList.remove("active");
+}
 
 window.scrollTo({top:0,behavior:"smooth"});
 
+closeMenuNow();
+
 }
 
+
+/* SEARCH */
 
 function searchProducts(){
 
-let text=document.getElementById("search")
-.value.toLowerCase();
+let q=document.getElementById("search")
+.value.toLowerCase().trim();
 
 openPage("shop");
 
-let result=products.filter(x=>
-(x[0]+" "+x[1])
+let result=products.filter(p=>
+(p[0]+" "+p[1])
 .toLowerCase()
-.includes(text)
+.includes(q)
 );
 
-document.getElementById("shopProducts")
-.innerHTML=result.map(card).join("");
+shopProducts.innerHTML=result.map(card).join("");
 
-document.getElementById("noResult")
-.style.display=result.length?"none":"block";
+noResult.style.display=result.length?"none":"block";
 
 }
 
 
-function category(cat){
+/* CATEGORY */
 
-document.getElementById("search").value=cat;
+function filterCategory(cat){
 
-searchProducts();
+openPage("shop");
+
+if(cat=="All"){
+shopProducts.innerHTML=products.map(card).join("");
+return;
+}
+
+let result=products.filter(p=>p[1]==cat);
+
+shopProducts.innerHTML=result.map(card).join("");
 
 }
 
 
-function menu(){
+/* MENU */
 
-document.getElementById("drawerBg")
-.classList.toggle("show");
-
+function openMenu(){
+menuOverlay.classList.add("show");
 }
-
 
 function closeMenu(e){
+if(e.target.id=="menuOverlay")
+closeMenuNow();
+}
 
-if(e.target.id==="drawerBg")
-menu();
+function closeMenuNow(){
+menuOverlay.classList.remove("show");
+}
+
+
+/* SEARCH BUTTON */
+
+function focusSearch(){
+
+document.querySelector(".search input").focus();
 
 }
 
+
+/* CALL */
 
 function callNow(){
-
 location.href="tel:01869871037";
-
 }
 
+
+/* WHATSAPP */
 
 function whatsapp(){
-
 location.href="https://wa.me/8801869871037";
+}
+
+
+/* MESSENGER */
+
+function messenger(){
+
+/*
+আপনার Facebook Page URL পরে এখানে বসানো যাবে।
+বর্তমানে Messenger খুলবে।
+*/
+
+location.href="https://m.me/";
 
 }
 
 
-function map(){
+/* MAP */
+
+function openMap(){
 
 location.href=
 "https://www.google.com/maps/search/?api=1&query=Sofigonj+Uttor+Bazar+19+No+Purbo+Chormotua+Sadar+Noakhali";
@@ -568,75 +886,442 @@ location.href=
 }
 
 
+/* MODAL */
+
+function showModal(content){
+
+modalContent.innerHTML=content;
+modal.classList.add("show");
+
+}
+
+function closeModal(){
+modal.classList.remove("show");
+}
+
+
+/* ABOUT */
+
+function openAbout(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>ℹ️ About ASFMR ARIF</h2>
+
+<div class="about">
+
+<h3>ASFMR Arif Computer & Mobile Servicing Center</h3>
+
+<p>
+আমাদের দোকানে মোবাইল ও কম্পিউটার সংক্রান্ত
+বিভিন্ন ধরনের সার্ভিস এবং প্রয়োজনীয় পণ্য পাওয়া যায়।
+</p>
+
+<p>
+📱 <b>Mobile Service:</b><br>
+Mobile Software, Hardware, Display, Battery,
+Charging Problem, Speaker, Microphone এবং
+অন্যান্য Mobile Parts-এর কাজ করা হয়।
+</p>
+
+<p>
+💻 <b>Computer Service:</b><br>
+Windows Install, Software Install, Hardware Service,
+RAM, SSD, HDD, Keyboard, Mouse, Router ও
+Computer Cleaning-এর কাজ করা হয়।
+</p>
+
+<p>
+🖨️ <b>Print & Copy:</b><br>
+Photocopy, Colour Print, Photo Print, Scan,
+Lamination, Print Paper ও Printer-এর কাজ করা হয়।
+</p>
+
+<p>
+🌐 <b>Online Service:</b><br>
+Online Application, Form Fill Up, Birth Certificate
+সংক্রান্ত অনলাইন কাজ, NID Related Online Service
+এবং Digital Service করা হয়।
+</p>
+
+<p>
+📍 <b>ঠিকানা:</b><br>
+Sofigonj Uttor Bazar,<br>
+19 No. Purbo Chormotua,<br>
+Sadar, Noakhali
+</p>
+
+<p>
+📞 <b>Mobile:</b> 01869871037
+</p>
+
+</div>
+
+`);
+
+}
+
+
+/* HOURS */
+
+function openHours(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>🕐 Opening Hours</h2>
+
+<p>শনিবার — বৃহস্পতিবার</p>
+<p><b>সকাল ৯:০০ — রাত ৯:০০</b></p>
+
+<p>শুক্রবার: দোকানের সময় জানতে ফোন করুন।</p>
+
+`);
+
+}
+
+
+/* NOTIFICATION */
+
+function openNotifications(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>🔔 Notifications</h2>
+
+<div class="settingsRow">
+<span>নতুন Product ও Service</span>
+<b>●</b>
+</div>
+
+<div class="settingsRow">
+<span>Shop Notice</span>
+<b>●</b>
+</div>
+
+<div class="settingsRow">
+<span>Special Offer</span>
+<b>●</b>
+</div>
+
+`);
+
+}
+
+
+/* LANGUAGE */
+
+function openLanguage(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>🌐 Select Language</h2>
+
+<div class="settingsRow">
+<span>🇧🇩 বাংলা</span>
+<button onclick="setLanguage('bn')">Select</button>
+</div>
+
+<div class="settingsRow">
+<span>🇬🇧 English</span>
+<button onclick="setLanguage('en')">Select</button>
+</div>
+
+<div class="settingsRow">
+<span>🇸🇦 العربية</span>
+<button onclick="setLanguage('ar')">Select</button>
+</div>
+
+`);
+
+}
+
+
+/* BASIC LANGUAGE */
+
+function setLanguage(lang){
+
+localStorage.setItem("language",lang);
+
+if(lang=="bn"){
+document.documentElement.dir="ltr";
+alert("বাংলা Language Selected");
+}
+
+if(lang=="en"){
+document.documentElement.dir="ltr";
+alert("English Language Selected");
+}
+
+if(lang=="ar"){
+document.documentElement.dir="rtl";
+alert("تم اختيار اللغة العربية");
+}
+
+closeModal();
+
+}
+
+
+/* SETTINGS */
+
+function openSettings(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>⚙️ Settings</h2>
+
+<div class="settingsRow">
+<span>🌙 Dark Mode</span>
+<button onclick="darkMode()">ON / OFF</button>
+</div>
+
+<div class="settingsRow">
+<span>🔔 Notifications</span>
+<button>ON</button>
+</div>
+
+<div class="settingsRow">
+<span>🌐 Language</span>
+<button onclick="openLanguage()">Change</button>
+</div>
+
+<div class="settingsRow">
+<span>👤 Profile</span>
+<button onclick="closeModal();openPage('profile')">Open</button>
+</div>
+
+<div class="settingsRow">
+<span>🗑️ Clear Saved Profile</span>
+<button onclick="clearProfile()">Clear</button>
+</div>
+
+`);
+
+}
+
+
+/* DARK MODE */
+
+function darkMode(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+document.body.style.background="#101522";
+document.body.style.color="#fff";
+
+}else{
+
+document.body.style.background="";
+document.body.style.color="";
+
+}
+
+}
+
+
+/* PRIVACY */
+
+function openPrivacy(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>🔒 Privacy Policy</h2>
+
+<p>
+আপনার Profile Information এই Demo Website-এ
+আপনার নিজের Browser-এ সংরক্ষিত থাকে।
+কোনো বাস্তব server account তৈরি করা হয়নি।
+</p>
+
+<p>
+Profile-এর ব্যক্তিগত তথ্য অন্য কারও কাছে
+স্বয়ংক্রিয়ভাবে পাঠানো হয় না।
+</p>
+
+`);
+
+}
+
+
+/* TERMS */
+
+function openTerms(){
+
+closeMenuNow();
+
+showModal(`
+
+<h2>📄 Terms & Conditions</h2>
+
+<p>
+Product-এর মূল্য ও availability পরিবর্তন হতে পারে।
+কোনো Product বা Service নেওয়ার আগে দোকানের
+সাথে যোগাযোগ করে নিশ্চিত করুন।
+</p>
+
+<p>
+Website-এর তথ্য পরিবর্তন বা আপডেট করা হতে পারে।
+</p>
+
+`);
+
+}
+
+
+/* PROFILE PHOTO */
+
+function previewPhoto(){
+
+let file=document.getElementById("photo").files[0];
+
+if(!file)return;
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+photoPreview.innerHTML=
+`<img src="${e.target.result}">`;
+
+localStorage.setItem("profilePhoto",e.target.result);
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* SAVE PROFILE */
+
 function saveProfile(){
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let address=document.getElementById("address").value;
+let data={
 
-if(name==="" || phone===""){
-alert("নাম ও মোবাইল নম্বর দিন।");
+name:pname.value,
+phone:pphone.value,
+email:email.value,
+dob:dob.value,
+gender:gender.value,
+division:division.value,
+district:district.value,
+upazila:upazila.value,
+union:union.value,
+village:village.value,
+post:post.value,
+postal:postal.value,
+address:fulladdress.value
+
+};
+
+if(!data.name || !data.phone){
+
+alert("নাম ও মোবাইল নম্বর অবশ্যই দিন।");
 return;
-}
-
-localStorage.setItem("asfmrProfile",
-JSON.stringify({
-name:name,
-phone:phone,
-address:address
-}));
-
-showProfile();
 
 }
 
+localStorage.setItem("ASFMR_Profile",
+JSON.stringify(data));
 
-function showProfile(){
-
-let data=localStorage.getItem("asfmrProfile");
-
-if(!data)return;
-
-data=JSON.parse(data);
-
-document.getElementById("name").value=data.name;
-document.getElementById("phone").value=data.phone;
-document.getElementById("address").value=data.address;
-
-document.getElementById("profileInfo").innerHTML=
+profileSaved.innerHTML=
 `
-<div style="
-background:#edf6ff;
-padding:14px;
-border-radius:13px;
-line-height:1.7">
+<div style="background:#edf6ff;padding:15px;border-radius:14px">
 
-<b>👤 ${data.name}</b><br>
+<b>✅ Profile Saved</b><br><br>
+
+👤 ${data.name}<br>
 📞 ${data.phone}<br>
-📍 ${data.address || "ঠিকানা দেওয়া হয়নি"}
+📧 ${data.email || ""}<br>
+📍 ${data.district || ""} ${data.upazila || ""}
 
 </div>
 `;
 
+alert("Profile সফলভাবে Save হয়েছে।");
+
 }
 
-showProfile();
 
+/* LOAD PROFILE */
+
+function loadProfile(){
+
+let data=localStorage.getItem("ASFMR_Profile");
+
+if(data){
+
+data=JSON.parse(data);
+
+Object.keys(data).forEach(k=>{
+
+let el=document.getElementById(
+k=="address"?"fulladdress":"p"+k
+);
+
+if(el)el.value=data[k];
+
+});
+
+}
+
+let img=localStorage.getItem("profilePhoto");
+
+if(img){
+
+photoPreview.innerHTML=
+`<img src="${img}">`;
+
+}
+
+}
+
+loadProfile();
+
+
+/* CLEAR PROFILE */
+
+function clearProfile(){
+
+if(confirm("Profile data মুছে ফেলবেন?")){
+
+localStorage.removeItem("ASFMR_Profile");
+localStorage.removeItem("profilePhoto");
+
+location.reload();
+
+}
+
+}
+
+
+/* BANNER AUTO SLIDE */
 
 let slide=0;
 
-setInterval(function(){
+setInterval(()=>{
 
-let banners=document.querySelectorAll(".banner");
-let dots=document.querySelectorAll(".dot");
+let banners=document.querySelectorAll(".ad");
 
-banners[slide].style.display="none";
-dots[slide].classList.remove("active");
+if(window.innerWidth<600){
 
-slide=(slide+1)%banners.length;
+slide=(slide+1)%3;
 
-banners[slide].style.display="block";
-dots[slide].classList.add("active");
+}
 
 },4000);
 
